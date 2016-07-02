@@ -32,8 +32,20 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        switch complication.family {
+        case .ModularSmall:
+            let now = NSDate()
+            let timelineEntry = CLKComplicationTimelineEntry()
+            timelineEntry.date = now
+            if let template = getTemplateForModularSmall(now) {
+                timelineEntry.complicationTemplate = template
+            }
+            handler(timelineEntry)
+            break
+        default:
+            handler(nil)
+            break
+        }
     }
     
     func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: NSDate, limit: Int, withHandler handler: (([CLKComplicationTimelineEntry]?) -> Void)) {
@@ -57,7 +69,28 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getPlaceholderTemplateForComplication(complication: CLKComplication, withHandler handler: (CLKComplicationTemplate?) -> Void) {
         // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        switch complication.family {
+        case .ModularSmall:
+            handler(getTemplateForModularSmall(NSDate()))
+            break
+        default:
+            handler(nil)
+            break
+        }
+    }
+    
+    //MARK: - Private methods
+    
+    func getTemplateForModularSmall(date: NSDate!) -> CLKComplicationTemplate? {
+        guard let weekNumber = date.weekNumber() else {
+            return nil
+        }
+
+        let template = CLKComplicationTemplateModularSmallStackText()
+        template.line1TextProvider = CLKSimpleTextProvider.init(text: "Week#", shortText: "W#")
+        template.line2TextProvider = CLKSimpleTextProvider.init(text: String(weekNumber))
+        template.highlightLine2 = true
+        return template
     }
     
 }

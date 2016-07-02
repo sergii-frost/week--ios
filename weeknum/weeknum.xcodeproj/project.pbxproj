@@ -79,7 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		45047FFF1D27E96300844EF4 /* weeknum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weeknum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45047FFF1D27E96300844EF4 /* Week#.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Week#.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		450480021D27E96300844EF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		450480041D27E96300844EF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		450480071D27E96300844EF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		450480001D27E96300844EF4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45047FFF1D27E96300844EF4 /* weeknum.app */,
+				45047FFF1D27E96300844EF4 /* Week#.app */,
 				450480131D27E96300844EF4 /* weeknumTests.xctest */,
 				453BD1CA1D28237F00B572D9 /* watchWeeknum.app */,
 				453BD1D61D28237F00B572D9 /* watchWeeknum Extension.appex */,
@@ -219,9 +219,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45047FFE1D27E96300844EF4 /* weeknum */ = {
+		45047FFE1D27E96300844EF4 /* Week# */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4504801C1D27E96300844EF4 /* Build configuration list for PBXNativeTarget "weeknum" */;
+			buildConfigurationList = 4504801C1D27E96300844EF4 /* Build configuration list for PBXNativeTarget "Week#" */;
 			buildPhases = (
 				45047FFB1D27E96300844EF4 /* Sources */,
 				45047FFC1D27E96300844EF4 /* Frameworks */,
@@ -233,9 +233,9 @@
 			dependencies = (
 				453BD1E51D28237F00B572D9 /* PBXTargetDependency */,
 			);
-			name = weeknum;
+			name = "Week#";
 			productName = weeknum;
-			productReference = 45047FFF1D27E96300844EF4 /* weeknum.app */;
+			productReference = 45047FFF1D27E96300844EF4 /* Week#.app */;
 			productType = "com.apple.product-type.application";
 		};
 		450480121D27E96300844EF4 /* weeknumTests */ = {
@@ -328,7 +328,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45047FFE1D27E96300844EF4 /* weeknum */,
+				45047FFE1D27E96300844EF4 /* Week# */,
 				450480121D27E96300844EF4 /* weeknumTests */,
 				453BD1C91D28237F00B572D9 /* watchWeeknum */,
 				453BD1D51D28237F00B572D9 /* watchWeeknum Extension */,
@@ -412,7 +412,7 @@
 /* Begin PBXTargetDependency section */
 		450480151D27E96300844EF4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 45047FFE1D27E96300844EF4 /* weeknum */;
+			target = 45047FFE1D27E96300844EF4 /* Week# */;
 			targetProxy = 450480141D27E96300844EF4 /* PBXContainerItemProxy */;
 		};
 		453BD1D91D28237F00B572D9 /* PBXTargetDependency */ = {
@@ -658,7 +658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4504801C1D27E96300844EF4 /* Build configuration list for PBXNativeTarget "weeknum" */ = {
+		4504801C1D27E96300844EF4 /* Build configuration list for PBXNativeTarget "Week#" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4504801D1D27E96300844EF4 /* Debug */,

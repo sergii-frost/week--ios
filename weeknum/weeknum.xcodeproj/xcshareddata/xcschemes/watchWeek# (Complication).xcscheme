@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45047FFE1D27E96300844EF4"
-               BuildableName = "weeknum.app"
-               BlueprintName = "weeknum"
+               BuildableName = "Week#.app"
+               BlueprintName = "Week#"
                ReferencedContainer = "container:weeknum.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
