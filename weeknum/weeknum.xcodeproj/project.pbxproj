@@ -302,6 +302,7 @@
 				TargetAttributes = {
 					45047FFE1D27E96300844EF4 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T4EZ537LS6;
 					};
 					450480121D27E96300844EF4 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -309,9 +310,11 @@
 					};
 					453BD1C91D28237F00B572D9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T4EZ537LS6;
 					};
 					453BD1D51D28237F00B572D9 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = T4EZ537LS6;
 					};
 				};
 			};
@@ -496,6 +499,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -534,6 +538,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				STRIP_BITCODE_FROM_COPIED_FILES = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -542,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = weeknum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknum;
@@ -553,6 +559,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = weeknum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknum;
@@ -588,6 +595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watchWeeknum_Extension;
 				INFOPLIST_FILE = watchWeeknum/Info.plist;
@@ -604,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = watchWeeknum_Extension;
 				INFOPLIST_FILE = watchWeeknum/Info.plist;
@@ -620,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "watchWeeknum Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknum.watchkitapp.watchkitextension;
@@ -635,6 +645,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "watchWeeknum Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknum.watchkitapp.watchkitextension;
@@ -683,6 +694,7 @@
 				453BD1EA1D28237F00B572D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		453BD1ED1D28237F00B572D9 /* Build configuration list for PBXNativeTarget "watchWeeknum" */ = {
 			isa = XCConfigurationList;
@@ -691,6 +703,7 @@
 				453BD1E81D28237F00B572D9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
