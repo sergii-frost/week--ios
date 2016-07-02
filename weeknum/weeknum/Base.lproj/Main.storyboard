@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weeknum" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02 Jul 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oli-Lg-FFr">
+                                <rect key="frame" x="20" y="40" width="280" height="33"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2z-ik-qWu">
+                                <rect key="frame" x="20" y="85" width="280" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCu-EG-Xgy">
+                                <rect key="frame" x="20" y="167.5" width="280" height="233"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="200"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.11372549019607843" green="0.69411764705882351" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bCu-EG-Xgy" secondAttribute="trailing" constant="20" id="7Q3-xr-Rr3"/>
+                            <constraint firstItem="Oli-Lg-FFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="G81-jV-HGy"/>
+                            <constraint firstItem="bCu-EG-Xgy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="I3c-yc-lSS"/>
+                            <constraint firstItem="U2z-ik-qWu" firstAttribute="trailing" secondItem="Oli-Lg-FFr" secondAttribute="trailing" id="NBQ-WG-z52"/>
+                            <constraint firstItem="U2z-ik-qWu" firstAttribute="top" secondItem="Oli-Lg-FFr" secondAttribute="bottom" constant="12" id="TJ8-Kb-jZp"/>
+                            <constraint firstItem="bCu-EG-Xgy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bpc-u5-HZc"/>
+                            <constraint firstAttribute="trailing" secondItem="Oli-Lg-FFr" secondAttribute="trailing" constant="20" id="cGa-AZ-JGn"/>
+                            <constraint firstItem="Oli-Lg-FFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="l1s-3D-gkJ"/>
+                            <constraint firstItem="U2z-ik-qWu" firstAttribute="leading" secondItem="Oli-Lg-FFr" secondAttribute="leading" id="pcF-Yd-HHn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="Oli-Lg-FFr" id="wbW-iy-WnM"/>
+                        <outlet property="weekDayLabel" destination="U2z-ik-qWu" id="F7V-oF-4Kq"/>
+                        <outlet property="weekNumberLabel" destination="bCu-EG-Xgy" id="lfE-KU-kEf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="297" y="433"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+</document>
