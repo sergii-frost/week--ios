@@ -15,6 +15,8 @@
 		450480181D27E96300844EF4 /* weeknumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480171D27E96300844EF4 /* weeknumTests.swift */; };
 		4504802A1D27FDC700844EF4 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480291D27FDC700844EF4 /* Localized.swift */; };
 		4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802B1D27FDE400844EF4 /* DateTools.swift */; };
+		4504802E1D280DF000844EF4 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802D1D280DF000844EF4 /* Designables.swift */; };
+		450480311D28178800844EF4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480301D28178800844EF4 /* DesignableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		450480191D27E96300844EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450480291D27FDC700844EF4 /* Localized.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Localized.swift; path = Extensions/Localized.swift; sourceTree = "<group>"; };
 		4504802B1D27FDE400844EF4 /* DateTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTools.swift; path = Extensions/DateTools.swift; sourceTree = "<group>"; };
+		4504802D1D280DF000844EF4 /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
+		450480301D28178800844EF4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableButton.swift; path = Views/DesignableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		450480011D27E96300844EF4 /* weeknum */ = {
 			isa = PBXGroup;
 			children = (
+				4504802F1D28174700844EF4 /* Views */,
 				450480281D27FD9A00844EF4 /* Extensions */,
 				450480021D27E96300844EF4 /* AppDelegate.swift */,
 				450480041D27E96300844EF4 /* ViewController.swift */,
@@ -106,8 +111,17 @@
 			children = (
 				450480291D27FDC700844EF4 /* Localized.swift */,
 				4504802B1D27FDE400844EF4 /* DateTools.swift */,
+				4504802D1D280DF000844EF4 /* Designables.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		4504802F1D28174700844EF4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				450480301D28178800844EF4 /* DesignableButton.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +226,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */,
+				4504802E1D280DF000844EF4 /* Designables.swift in Sources */,
 				450480051D27E96300844EF4 /* ViewController.swift in Sources */,
 				4504802A1D27FDC700844EF4 /* Localized.swift in Sources */,
 				450480031D27E96300844EF4 /* AppDelegate.swift in Sources */,
+				450480311D28178800844EF4 /* DesignableButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
