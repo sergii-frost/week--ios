@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var weekDayLabel: UILabel!
+    @IBOutlet weak var weekInfoLabel: UILabel!
     @IBOutlet weak var weekNumberLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
 
@@ -49,13 +49,18 @@ class ViewController: UIViewController {
     //MARK: - UI related methods
     
     private func updateUIWithDate(date: NSDate) {
-        self.dateLabel.fadeTransition()
-        self.dateLabel.text = date.formatted()
-        if let dayOfWeek = date.dayOfWeek(), let dayWithName = WeekDays(rawValue: dayOfWeek) {
-            self.weekDayLabel.fadeTransition()
-            self.weekDayLabel.text = dayWithName.name
+        if  let formattedDate = FormatterUtils.formattedDate(date) {
+            self.dateLabel.fadeTransition()
+            self.dateLabel.text = formattedDate
         } else {
-            self.weekDayLabel.text = nil
+            self.dateLabel.text = nil
+        }
+        
+        if let weekInfo = FormatterUtils.getWeekInfo(date) {
+            self.weekInfoLabel.fadeTransition()
+            self.weekInfoLabel.text = weekInfo
+        } else {
+            self.weekInfoLabel.text = nil
         }
         
         if let weekNumber = date.weekNumber() {

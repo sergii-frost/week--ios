@@ -13,7 +13,7 @@ import Foundation
 class InterfaceController: WKInterfaceController {
 
     @IBOutlet var dateDetailsLabel: WKInterfaceLabel!
-    @IBOutlet var weekDayLabel: WKInterfaceLabel!
+    @IBOutlet var weekInfoLabel: WKInterfaceLabel!
     @IBOutlet var weekNumberLabel: WKInterfaceLabel!
     
     override func awakeWithContext(context: AnyObject?) {
@@ -34,11 +34,11 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func updateUIWithDate(date: NSDate) {
-        self.dateDetailsLabel.setText(date.formatted())
-        if let dayOfWeek = date.dayOfWeek(), let dayWithName = WeekDays(rawValue: dayOfWeek) {
-            self.weekDayLabel.setText(dayWithName.name)
+        self.dateDetailsLabel.setText(FormatterUtils.formattedDate(date))
+        if let weekInfo = FormatterUtils.getWeekInfo(date) {
+            self.weekInfoLabel.setText(weekInfo)
         } else {
-            self.weekDayLabel.setText(nil)
+            self.weekInfoLabel.setText(nil)
         }
         if let weekNumber = date.weekNumber() {
             self.weekNumberLabel.setText(String(weekNumber))

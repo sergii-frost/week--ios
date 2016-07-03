@@ -58,20 +58,23 @@ extension NSDate {
         return comp.weekOfYear
     }
     
-    func formatted(dateFormat: String = "dd MMM yyyy") -> String {
-        let df = NSDateFormatter()
-        df.locale = NSLocale.currentLocale()
-        df.dateFormat = dateFormat
-        return df.stringFromDate(self)
-    }
-    
-    func tomorrow() -> NSDate? {
+    private func startOfDay() -> NSDate? {
         guard
             let cal: NSCalendar = NSCalendar.currentCalendar()
             else { return nil }
         
         cal.timeZone = NSTimeZone.systemTimeZone()
-        let startOfDay = cal.startOfDayForDate(self)
+        return cal.startOfDayForDate(self)
+    }
+    
+    func dayBefore() -> NSDate? {
+        guard let startOfDay = self.startOfDay() else { return nil }
+        return startOfDay.dateByAddingTimeInterval(-DAY)
+    }
+
+    
+    func dayeAfter() -> NSDate? {
+        guard let startOfDay = self.startOfDay() else { return nil }
         return startOfDay.dateByAddingTimeInterval(DAY)
     }
     
