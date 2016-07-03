@@ -17,6 +17,8 @@
 		4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802B1D27FDE400844EF4 /* DateTools.swift */; };
 		4504802E1D280DF000844EF4 /* Designables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802D1D280DF000844EF4 /* Designables.swift */; };
 		450480311D28178800844EF4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480301D28178800844EF4 /* DesignableButton.swift */; };
+		450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
+		450598D11D294B1C00E649F8 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
 		453BD1CE1D28237F00B572D9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453BD1CC1D28237F00B572D9 /* Interface.storyboard */; };
 		453BD1D01D28237F00B572D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453BD1CF1D28237F00B572D9 /* Assets.xcassets */; };
 		453BD1D71D28237F00B572D9 /* watchWeeknum Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 453BD1D61D28237F00B572D9 /* watchWeeknum Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -93,6 +95,7 @@
 		4504802B1D27FDE400844EF4 /* DateTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateTools.swift; path = Extensions/DateTools.swift; sourceTree = "<group>"; };
 		4504802D1D280DF000844EF4 /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		450480301D28178800844EF4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableButton.swift; path = Views/DesignableButton.swift; sourceTree = "<group>"; };
+		450598CE1D293FB000E649F8 /* FormatterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatterUtils.swift; path = Utils/FormatterUtils.swift; sourceTree = "<group>"; };
 		453BD1CA1D28237F00B572D9 /* watchWeeknum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchWeeknum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453BD1CD1D28237F00B572D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		453BD1CF1D28237F00B572D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -155,6 +158,7 @@
 		450480011D27E96300844EF4 /* weeknum */ = {
 			isa = PBXGroup;
 			children = (
+				450598D01D293FB500E649F8 /* Utils */,
 				4504802F1D28174700844EF4 /* Views */,
 				450480281D27FD9A00844EF4 /* Extensions */,
 				450480021D27E96300844EF4 /* AppDelegate.swift */,
@@ -192,6 +196,14 @@
 				450480301D28178800844EF4 /* DesignableButton.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		450598D01D293FB500E649F8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				450598CE1D293FB000E649F8 /* FormatterUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		453BD1CB1D28237F00B572D9 /* watchWeeknum */ = {
@@ -384,6 +396,7 @@
 				4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */,
 				4504802E1D280DF000844EF4 /* Designables.swift in Sources */,
 				450480051D27E96300844EF4 /* ViewController.swift in Sources */,
+				450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */,
 				4504802A1D27FDC700844EF4 /* Localized.swift in Sources */,
 				450480031D27E96300844EF4 /* AppDelegate.swift in Sources */,
 				450480311D28178800844EF4 /* DesignableButton.swift in Sources */,
@@ -404,6 +417,7 @@
 			files = (
 				453BD1DE1D28237F00B572D9 /* ExtensionDelegate.swift in Sources */,
 				453BD1F11D282B0F00B572D9 /* Localized.swift in Sources */,
+				450598D11D294B1C00E649F8 /* FormatterUtils.swift in Sources */,
 				453BD1EF1D28290B00B572D9 /* DateTools.swift in Sources */,
 				453BD1DC1D28237F00B572D9 /* InterfaceController.swift in Sources */,
 				453BD1E01D28237F00B572D9 /* ComplicationController.swift in Sources */,
