@@ -10,27 +10,52 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="watchWeeknum" customModuleProvider="target">
                     <items>
-                        <group width="1" height="150" alignment="left" layout="vertical" id="H9h-4m-gXH">
+                        <group width="1" height="120" alignment="left" layout="vertical" id="H9h-4m-gXH">
                             <items>
-                                <label width="136" alignment="left" text="Sat, 02 Jul 2016" textAlignment="center" id="Ih7-bL-Flh">
+                                <label width="136" height="15" alignment="left" text="Sat, 02 Jul 2016" textAlignment="center" id="Ih7-bL-Flh">
                                     <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
                                     <variation key="device=watch38mm" width="136"/>
                                     <variation key="device=watch42mm" text="Sat, 02 Jul 2016" width="156"/>
                                 </label>
-                                <label width="136" alignment="left" text="27 Jun - 03 Jul" textAlignment="center" id="Byn-u6-3NO">
+                                <label width="136" height="18.5" alignment="left" text="27 Jun - 03 Aug" textAlignment="center" id="Byn-u6-3NO">
                                     <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
                                     <variation key="device=watch38mm" width="136"/>
-                                    <variation key="device=watch42mm" text="27 Jun - 03 Jul" width="156"/>
+                                    <variation key="device=watch42mm" text="27 Jun - 03 Aug" width="156"/>
                                 </label>
-                                <label width="136" height="106" alignment="left" verticalAlignment="center" text="26" textAlignment="center" id="zAW-pa-gBa">
-                                    <fontDescription key="font" type="boldSystem" pointSize="110"/>
-                                    <variation key="device=watch38mm" height="105" width="136"/>
-                                    <variation key="device=watch42mm" height="129" text="00" width="156"/>
+                                <label width="136" height="76" alignment="left" verticalAlignment="center" text="26" textAlignment="center" id="zAW-pa-gBa">
+                                    <fontDescription key="font" type="boldSystem" pointSize="100"/>
+                                    <variation key="device=watch38mm" height="75" width="136"/>
+                                    <variation key="device=watch42mm" height="90" text="00" width="156"/>
                                 </label>
                             </items>
                             <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
-                            <variation key="device=watch38mm" height="151"/>
-                            <variation key="device=watch42mm" height="170.5"/>
+                            <variation key="device=watch38mm" height="118"/>
+                            <variation key="device=watch42mm" height="128.5"/>
+                        </group>
+                        <group width="1" height="40" alignment="left" id="77H-Ux-fvP">
+                            <items>
+                                <button width="0.33000000000000002" height="1" alignment="left" title="&lt;-" id="rIZ-XJ-n2J">
+                                    <color key="titleColor" red="0.1137254902" green="0.69411764710000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="updateForPreviousWeek" destination="AgC-eL-Hgc" id="tiP-K8-MzT"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" height="1" alignment="center" title="Now" id="HQL-90-ibN">
+                                    <connections>
+                                        <action selector="updateForToday" destination="AgC-eL-Hgc" id="cJe-Am-JFb"/>
+                                    </connections>
+                                </button>
+                                <button width="0.33000000000000002" height="1" alignment="right" title="-&gt;" id="ZFP-OV-e2J">
+                                    <color key="titleColor" red="0.1137254902" green="0.69411764710000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="updateForNextWeek" destination="AgC-eL-Hgc" id="c2I-8d-t60"/>
+                                    </connections>
+                                </button>
+                            </items>
+                            <variation key="device=watch38mm" height="28"/>
+                            <variation key="device=watch42mm" height="40"/>
                         </group>
                     </items>
                     <color key="backgroundColor" red="0.1137254902" green="0.69411764710000001" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,7 +66,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="559.69230769230774" y="459.00000000000006"/>
+            <point key="canvasLocation" x="557.94871794871801" y="350.02564102564105"/>
         </scene>
     </scenes>
 </document>
