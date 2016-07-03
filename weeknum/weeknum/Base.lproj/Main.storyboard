@@ -17,6 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-3e-5Vv" userLabel="Vertical Spacer Top-Date">
+                                <rect key="frame" x="0.0" y="20" width="320" height="0.0"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Sat, 02 Jul 2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="Oli-Lg-FFr">
                                 <rect key="frame" x="20" y="40" width="280" height="35"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="30"/>
@@ -29,6 +32,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gro-wk-gXu" userLabel="Vertical Spacer WeekInfo-WeekNumber">
+                                <rect key="frame" x="0.0" y="117" width="320" height="0.0"/>
+                            </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCu-EG-Xgy">
                                 <rect key="frame" x="20" y="121" width="280" height="233"/>
                                 <gestureRecognizers/>
@@ -40,21 +46,11 @@
                                     <outletCollection property="gestureRecognizers" destination="p7q-Y7-0Vm" appends="YES" id="Fjp-hH-m1n"/>
                                 </connections>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7E5-BN-ClF">
-                                <rect key="frame" x="0.0" y="362" width="320" height="205.5"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <date key="date" timeIntervalSinceReferenceDate="489162393.787094">
-                                    <!--2016-07-02 14:26:33 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
-                                </date>
-                                <connections>
-                                    <action selector="datePickerChangedValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="7q9-qh-OcM"/>
-                                </connections>
-                            </datePicker>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vy-dS-RIp" userLabel="Vertical Spacer WeekNumber-Buttons">
+                                <rect key="frame" x="0.0" y="358" width="320" height="0.0"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGA-Fq-Lrh" customClass="DesignableButton" customModule="Week_" customModuleProvider="target">
-                                <rect key="frame" x="123.5" y="324" width="73" height="30"/>
+                                <rect key="frame" x="123" y="362" width="73" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7ld-rS-chC"/>
                                 </constraints>
@@ -76,7 +72,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTZ-Sx-MQG" customClass="DesignableButton" customModule="Week_" customModuleProvider="target">
-                                <rect key="frame" x="226" y="324" width="73.5" height="30"/>
+                                <rect key="frame" x="226" y="362" width="73.5" height="30"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <state key="normal" title="--&gt;"/>
                                 <userDefinedRuntimeAttributes>
@@ -95,7 +91,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-TP-vxc" customClass="DesignableButton" customModule="Week_" customModuleProvider="target">
-                                <rect key="frame" x="20" y="324" width="73.5" height="30"/>
+                                <rect key="frame" x="20" y="362" width="73.5" height="30"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <state key="normal" title="&lt;--"/>
                                 <userDefinedRuntimeAttributes>
@@ -113,34 +109,63 @@
                                     <action selector="updateForPreviousWeek" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Dh-Gw-J19"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7E5-BN-ClF">
+                                <rect key="frame" x="0.0" y="396.5" width="320" height="171.5"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="200" id="F07-Lx-pK4"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="489162393.787094">
+                                    <!--2016-07-02 14:26:33 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerChangedValue:" destination="BYZ-38-t0r" eventType="valueChanged" id="7q9-qh-OcM"/>
+                                </connections>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.69411764705882351" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="vyt-3e-5Vv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="39X-cz-x1I"/>
                             <constraint firstAttribute="trailing" secondItem="7E5-BN-ClF" secondAttribute="trailing" id="3GF-Gm-0AA"/>
-                            <constraint firstItem="7E5-BN-ClF" firstAttribute="top" secondItem="bCu-EG-Xgy" secondAttribute="bottom" constant="8" id="4g0-Yv-N2V"/>
+                            <constraint firstItem="Gro-wk-gXu" firstAttribute="trailing" secondItem="vyt-3e-5Vv" secondAttribute="trailing" id="44u-rK-7Ab"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7E5-BN-ClF" secondAttribute="bottom" id="5J8-Cr-gVS"/>
                             <constraint firstAttribute="trailing" secondItem="bCu-EG-Xgy" secondAttribute="trailing" constant="20" id="7Q3-xr-Rr3"/>
                             <constraint firstAttribute="trailing" secondItem="qTZ-Sx-MQG" secondAttribute="trailing" constant="20" id="7UX-kR-ibE"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="width" secondItem="z0V-TP-vxc" secondAttribute="width" id="ATr-Qi-iPv"/>
+                            <constraint firstItem="kGA-Fq-Lrh" firstAttribute="top" secondItem="6vy-dS-RIp" secondAttribute="bottom" constant="4" id="Ak9-Pa-4aY"/>
+                            <constraint firstItem="6vy-dS-RIp" firstAttribute="leading" secondItem="vyt-3e-5Vv" secondAttribute="leading" id="Fdt-oQ-b2b"/>
                             <constraint firstItem="Oli-Lg-FFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="G81-jV-HGy"/>
                             <constraint firstItem="bCu-EG-Xgy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="I3c-yc-lSS"/>
+                            <constraint firstItem="6vy-dS-RIp" firstAttribute="top" secondItem="bCu-EG-Xgy" secondAttribute="bottom" constant="4" id="Jj7-wU-tKB"/>
                             <constraint firstItem="U2z-ik-qWu" firstAttribute="trailing" secondItem="Oli-Lg-FFr" secondAttribute="trailing" id="NBQ-WG-z52"/>
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="width" secondItem="z0V-TP-vxc" secondAttribute="width" id="PeF-0S-fFW"/>
+                            <constraint firstItem="6vy-dS-RIp" firstAttribute="width" secondItem="vyt-3e-5Vv" secondAttribute="width" id="QaD-nR-MkC"/>
+                            <constraint firstItem="Gro-wk-gXu" firstAttribute="top" secondItem="U2z-ik-qWu" secondAttribute="bottom" constant="4" id="SQC-VX-L3k"/>
                             <constraint firstItem="U2z-ik-qWu" firstAttribute="top" secondItem="Oli-Lg-FFr" secondAttribute="bottom" constant="12" id="TJ8-Kb-jZp"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="bottom" secondItem="z0V-TP-vxc" secondAttribute="bottom" id="ThD-WT-kDJ"/>
+                            <constraint firstItem="bCu-EG-Xgy" firstAttribute="top" secondItem="Gro-wk-gXu" secondAttribute="bottom" constant="4" id="Vo1-me-qlD"/>
+                            <constraint firstItem="7E5-BN-ClF" firstAttribute="top" secondItem="kGA-Fq-Lrh" secondAttribute="bottom" constant="4" id="WXO-iS-rdc"/>
                             <constraint firstItem="7E5-BN-ClF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XGE-4D-Qqg"/>
-                            <constraint firstItem="kGA-Fq-Lrh" firstAttribute="bottom" secondItem="bCu-EG-Xgy" secondAttribute="bottom" id="ZnH-uh-D4H"/>
+                            <constraint firstAttribute="trailing" secondItem="vyt-3e-5Vv" secondAttribute="trailing" id="aHz-tp-3sA"/>
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="bottom" secondItem="z0V-TP-vxc" secondAttribute="bottom" id="abv-BK-CD5"/>
                             <constraint firstAttribute="trailing" secondItem="Oli-Lg-FFr" secondAttribute="trailing" constant="20" id="cGa-AZ-JGn"/>
                             <constraint firstItem="z0V-TP-vxc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="eDg-uN-rwP"/>
+                            <constraint firstItem="Gro-wk-gXu" firstAttribute="height" secondItem="vyt-3e-5Vv" secondAttribute="height" id="j5i-sh-1EN"/>
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="height" secondItem="z0V-TP-vxc" secondAttribute="height" id="kqg-hz-VGn"/>
-                            <constraint firstItem="Oli-Lg-FFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="l1s-3D-gkJ"/>
-                            <constraint firstItem="bCu-EG-Xgy" firstAttribute="top" secondItem="U2z-ik-qWu" secondAttribute="bottom" constant="8" id="nhF-6h-1DN"/>
+                            <constraint firstItem="Oli-Lg-FFr" firstAttribute="top" secondItem="vyt-3e-5Vv" secondAttribute="bottom" constant="20" id="nYF-uL-9hr"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="leading" secondItem="z0V-TP-vxc" secondAttribute="trailing" constant="30" id="oQW-r9-gJH"/>
+                            <constraint firstItem="Gro-wk-gXu" firstAttribute="leading" secondItem="vyt-3e-5Vv" secondAttribute="leading" id="oci-ZE-bgi"/>
+                            <constraint firstItem="vyt-3e-5Vv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="p4z-8L-WXH"/>
                             <constraint firstItem="U2z-ik-qWu" firstAttribute="leading" secondItem="Oli-Lg-FFr" secondAttribute="leading" id="pcF-Yd-HHn"/>
+                            <constraint firstItem="Gro-wk-gXu" firstAttribute="width" secondItem="vyt-3e-5Vv" secondAttribute="width" id="rJU-xv-VpO"/>
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="leading" secondItem="kGA-Fq-Lrh" secondAttribute="trailing" constant="30" id="tHI-J5-uWf"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="height" secondItem="z0V-TP-vxc" secondAttribute="height" id="x6k-gu-RQA"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xgE-a2-umh"/>
+                            <constraint firstItem="6vy-dS-RIp" firstAttribute="height" secondItem="vyt-3e-5Vv" secondAttribute="height" id="ysx-fU-FfK"/>
+                            <constraint firstItem="6vy-dS-RIp" firstAttribute="trailing" secondItem="vyt-3e-5Vv" secondAttribute="trailing" id="zUx-1J-cQo"/>
                         </constraints>
                     </view>
                     <connections>
