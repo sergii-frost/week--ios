@@ -39,8 +39,23 @@ class ViewController: UIViewController {
     
     @IBAction func updateForToday() {
         self.datePicker.date = NSDate()
-        updateUIWithDate(self.datePicker.date)
+        datePickerChangedValue(self.datePicker)
     }
+    
+    @IBAction func updateForNextWeek() {
+        if let nextWeekDate = self.datePicker.date.weekAfter() {
+            self.datePicker.date = nextWeekDate
+            datePickerChangedValue(self.datePicker)
+        }
+    }
+    
+    @IBAction func updateForPreviousWeek() {
+        if let previousWeekDate = self.datePicker.date.weekBefore() {
+            self.datePicker.date = previousWeekDate
+            datePickerChangedValue(self.datePicker)
+        }
+    }
+
     
     @IBAction func datePickerChangedValue(datePickerWithNewValue: UIDatePicker) {
         updateUIWithDate(datePickerWithNewValue.date)

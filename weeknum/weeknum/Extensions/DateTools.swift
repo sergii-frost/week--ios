@@ -34,12 +34,29 @@ enum WeekDays: Int {
         case .Sunday:   return 1
         }
     }
+    
+    var weekProgress: Float {
+        return Float(self.rawValue-1) / 7.0
+    }
 }
 
 let DAY: NSTimeInterval = 60*60*24
-let WEEK: NSTimeInterval = DAY*7
+let DAYS_IN_WEEK: Int = 7
+let WEEK: NSTimeInterval = DAY*NSTimeInterval(DAYS_IN_WEEK)
 
 extension NSDate {
+    
+    private func startOfDay() -> NSDate? {
+        guard
+            let cal: NSCalendar = NSCalendar.currentCalendar()
+            else { return nil }
+        
+        cal.timeZone = NSTimeZone.systemTimeZone()
+        return cal.startOfDayForDate(self)
+    }
+
+    //MARK: - Day of Week, Week Number
+    
     func dayOfWeek() -> Int? {
         guard
             let cal: NSCalendar = NSCalendar.currentCalendar(),
@@ -58,25 +75,35 @@ extension NSDate {
         return comp.weekOfYear
     }
     
-    private func startOfDay() -> NSDate? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar()
-            else { return nil }
-        
-        cal.timeZone = NSTimeZone.systemTimeZone()
-        return cal.startOfDayForDate(self)
+    //MARK: - Day(s) before/after
+    
+    func daysBefore(days: Int) -> NSDate? {
+        guard let startOfDay = self.startOfDay() else { return nil }
+        return startOfDay.dateByAddingTimeInterval(-DAY*NSTimeInterval(days))
     }
     
     func dayBefore() -> NSDate? {
-        guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.dateByAddingTimeInterval(-DAY)
+        return daysBefore(1)
     }
-
     
-    func dayeAfter() -> NSDate? {
+    func daysAfter(days: Int) -> NSDate? {
         guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.dateByAddingTimeInterval(DAY)
+        return startOfDay.dateByAddingTimeInterval(DAY*NSTimeInterval(days))
     }
+    
+    func dayAfter() -> NSDate? {
+        return daysAfter(1)
+    }
+    
+    func weekBefore() -> NSDate? {
+        return daysBefore(DAYS_IN_WEEK)
+    }
+    
+    func weekAfter() -> NSDate? {
+        return daysAfter(DAYS_IN_WEEK)
+    }
+    
+    //MARK: - last/this/next week start dates logics
     
     func nextWeekStart() -> NSDate? {
         guard
