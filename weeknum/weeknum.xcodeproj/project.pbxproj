@@ -29,6 +29,8 @@
 		453BD1E61D28237F00B572D9 /* watchWeeknum.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 453BD1CA1D28237F00B572D9 /* watchWeeknum.app */; };
 		453BD1EF1D28290B00B572D9 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802B1D27FDE400844EF4 /* DateTools.swift */; };
 		453BD1F11D282B0F00B572D9 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480291D27FDC700844EF4 /* Localized.swift */; };
+		454FE6961D296AFC003009E9 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
+		454FE6971D296B0B003009E9 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802B1D27FDE400844EF4 /* DateTools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -407,7 +409,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454FE6961D296AFC003009E9 /* FormatterUtils.swift in Sources */,
 				450480181D27E96300844EF4 /* weeknumTests.swift in Sources */,
+				454FE6971D296B0B003009E9 /* DateTools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,7 +593,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weeknum.app/weeknum";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Week#.app/Week#";
 			};
 			name = Debug;
 		};
@@ -601,7 +605,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = se.frostdigital.weeknumTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weeknum.app/weeknum";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Week#.app/Week#";
 			};
 			name = Release;
 		};

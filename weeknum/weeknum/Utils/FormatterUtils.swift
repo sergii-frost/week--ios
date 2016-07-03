@@ -24,6 +24,10 @@ class FormatterUtils {
         return dateFormatter(dateFormat).stringFromDate(date)
     }
     
+    static func dateFromString(string: String, dateFormat: String) -> NSDate? {
+        return dateFormatter(dateFormat).dateFromString(string)
+    }
+    
     static func getWeekInfo(date: NSDate?, shortDateFormat: String = kShortDateFormat) -> String? {
         guard
             let date = date,
