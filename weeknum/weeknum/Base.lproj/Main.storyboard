@@ -29,11 +29,16 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCu-EG-Xgy">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="26" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCu-EG-Xgy">
                                 <rect key="frame" x="20" y="121" width="280" height="233"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="200"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Xqi-fe-gn3" appends="YES" id="sk5-wm-K2S"/>
+                                    <outletCollection property="gestureRecognizers" destination="p7q-Y7-0Vm" appends="YES" id="Fjp-hH-m1n"/>
+                                </connections>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7E5-BN-ClF">
                                 <rect key="frame" x="0.0" y="362" width="320" height="205.5"/>
@@ -146,6 +151,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Xqi-fe-gn3" userLabel="Right Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="updateForPreviousWeek" destination="BYZ-38-t0r" id="Ouw-jP-uQ6"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="p7q-Y7-0Vm" userLabel="Left Swipe Gesture Recognizer">
+                    <connections>
+                        <action selector="updateForNextWeek" destination="BYZ-38-t0r" id="9xQ-5Z-zd5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="297" y="433"/>
         </scene>
