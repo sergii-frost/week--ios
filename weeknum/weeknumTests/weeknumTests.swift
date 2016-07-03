@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import weeknum
+@testable import Week_
 
 class weeknumTests: XCTestCase {
     
