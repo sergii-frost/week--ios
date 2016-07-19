@@ -43,14 +43,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func updateForNextWeek() {
-        if let nextWeekDate = self.datePicker.date.weekAfter() {
+        if let nextWeekDate = self.datePicker.date.nextWeekStart() {
             self.datePicker.date = nextWeekDate
             datePickerChangedValue(self.datePicker)
         }
     }
     
     @IBAction func updateForPreviousWeek() {
-        if let previousWeekDate = self.datePicker.date.weekBefore() {
+        if let previousWeekDate = self.datePicker.date.lastWeekStart() {
             self.datePicker.date = previousWeekDate
             datePickerChangedValue(self.datePicker)
         }
