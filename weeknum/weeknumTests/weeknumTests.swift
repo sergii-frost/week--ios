@@ -109,4 +109,19 @@ class weeknumTests: XCTestCase {
         XCTAssertEqual(expected1NextWeek, date.nextWeekStart())
         XCTAssertEqual(expected2NextWeeks, date.nextWeekStart()?.nextWeekStart())
     }
+    
+    func testNextWeeksForDateNearDST() {
+        //GIVEN
+        guard
+            let date = FormatterUtils.dateFromString("17 Oct 2016", dateFormat: dateFormat),
+            let expected1NextWeek = FormatterUtils.dateFromString("24 Oct 2016", dateFormat: dateFormat),
+            let expected2NextWeeks = FormatterUtils.dateFromString("31 Oct 2016", dateFormat: dateFormat),
+            let expected3NextWeeks = FormatterUtils.dateFromString("07 Nov 2016", dateFormat: dateFormat)
+            else { XCTFail(); return}
+        //WHEN
+        //THEN
+        XCTAssertEqual(expected1NextWeek, date.nextWeekStart())
+        XCTAssertEqual(expected2NextWeeks, date.nextWeekStart()?.nextWeekStart())
+        XCTAssertEqual(expected3NextWeeks, date.nextWeekStart()?.nextWeekStart()?.nextWeekStart())
+    }
 }
