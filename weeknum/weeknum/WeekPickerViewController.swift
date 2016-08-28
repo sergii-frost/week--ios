@@ -16,18 +16,33 @@ class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBOutlet weak var weekNumbersCollectionView: UICollectionView!
     weak var delegate: WeekPickerDelegate?
-    var selectedDate: NSDate?
+    var weeksRange: [Int] = [] {
+        didSet {
+            if weeksRange.first == 0 {
+                weeksRange.removeFirst()
+            }
+            if let _ = self.weekNumbersCollectionView {
+                self.weekNumbersCollectionView.reloadData()
+            }
+        }
+    }
+    var selectedDate: NSDate = NSDate() {
+        didSet {
+            guard let range = self.selectedDate.weeksRangeInYear() else {return}
+            self.weeksRange = range
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let weekToSelect = selectedDate?.weekNumber() ?? NSDate().weekNumber() else {
+        guard let weekToSelect = selectedDate.weekNumber() ?? NSDate().weekNumber() else {
             return
         }
         weekNumbersCollectionView.selectItemAtIndexPath(indexPathForWeek(weekToSelect), animated: true, scrollPosition: UICollectionViewScrollPosition.None)
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedDate?.numberOfWeeksInYear() ?? NSDate().numberOfWeeksInYear() ?? 0
+        return weeksRange.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -43,12 +58,15 @@ class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UI
         }
     }
     
-    func weekForIndexPath(indexPath: NSIndexPath) -> Int {
-        return indexPath.row + 1
+    private func weekForIndexPath(indexPath: NSIndexPath) -> Int {
+        return weeksRange[indexPath.row]
     }
     
-    func indexPathForWeek(weekNum: Int) -> NSIndexPath {
-        return NSIndexPath(forRow: weekNum-1, inSection: 0)
+    private func indexPathForWeek(weekNum: Int) -> NSIndexPath {
+        guard let weekIndex = weeksRange.indexOf(weekNum) else {
+            return NSIndexPath(forRow: 0, inSection: 0)
+        }
+        return NSIndexPath(forRow: weekIndex, inSection: 0)
     }
 }
 

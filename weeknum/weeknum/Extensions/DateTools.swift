@@ -75,11 +75,10 @@ extension NSDate {
         return comp.weekOfYear
     }
     
-    func numberOfWeeksInYear() -> Int? {
+    func weeksRangeInYear() -> [Int]? {
         guard let calendar = NSCalendar(identifier: NSCalendarIdentifierISO8601) else { return nil}
         let weekRange = calendar.rangeOfUnit(.WeekOfYear, inUnit: .Year, forDate: self)
-        let weekArray = Array(weekRange.location..<weekRange.location + weekRange.length)
-        return weekArray.last
+        return Array(weekRange.location..<weekRange.location + weekRange.length)
     }
     
     //MARK: - Day(s) before/after
@@ -156,7 +155,7 @@ extension NSDate {
         guard let week = week else {
             return nil
         }
-        if week > self.numberOfWeeksInYear() {
+        if week > self.weeksRangeInYear()?.last {
             return nil
         }
         comp.weekOfYear = week

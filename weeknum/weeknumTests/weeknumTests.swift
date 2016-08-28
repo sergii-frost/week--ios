@@ -148,7 +148,7 @@ class weeknumTests: XCTestCase {
         //WHEN
         //THEN
         XCTAssertNil(dateForWeek26.startForWeek(53))
-        XCTAssertNil(dateForWeek26.startForWeek(70))        
+        XCTAssertNil(dateForWeek26.startForWeek(70))
     }
     
     func testNumberOfWeeksInYear() {
@@ -165,9 +165,9 @@ class weeknumTests: XCTestCase {
         let expectedWeeksNumber2020 = 53
         //WHEN
         //THEN
-        XCTAssertEqual(expectedWeeksNumber2015, year2015.numberOfWeeksInYear())
-        XCTAssertEqual(expectedWeeksNumber2016, year2016.numberOfWeeksInYear())
-        XCTAssertEqual(expectedWeeksNumber2017, year2017.numberOfWeeksInYear())
-        XCTAssertEqual(expectedWeeksNumber2020, year2020.numberOfWeeksInYear())
+        XCTAssertEqual(expectedWeeksNumber2015, year2015.weeksRangeInYear()?.last)
+        XCTAssertEqual(expectedWeeksNumber2016, year2016.weeksRangeInYear()?.last)
+        XCTAssertEqual(expectedWeeksNumber2017, year2017.weeksRangeInYear()?.last)
+        XCTAssertEqual(expectedWeeksNumber2020, year2020.weeksRangeInYear()?.last)
     }
 }
