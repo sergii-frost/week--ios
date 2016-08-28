@@ -124,4 +124,50 @@ class weeknumTests: XCTestCase {
         XCTAssertEqual(expected2NextWeeks, date.nextWeekStart()?.nextWeekStart())
         XCTAssertEqual(expected3NextWeeks, date.nextWeekStart()?.nextWeekStart()?.nextWeekStart())
     }
+    
+    func testDateForWeekNum() {
+        //GIVEN
+        guard
+            let dateForWeek26 = FormatterUtils.dateFromString("03 Jul 2016", dateFormat: dateFormat),
+            let expectedForWeek23 = FormatterUtils.dateFromString("06 Jun 2016", dateFormat: dateFormat),
+            let expectedForWeek30 = FormatterUtils.dateFromString("25 Jul 2016", dateFormat: dateFormat),
+            let expectedForWeek45 = FormatterUtils.dateFromString("07 Nov 2016", dateFormat: dateFormat)
+            else { XCTFail(); return}
+        //WHEN
+        //THEN
+        XCTAssertEqual(expectedForWeek23, dateForWeek26.startForWeek(23))
+        XCTAssertEqual(expectedForWeek30, expectedForWeek23.startForWeek(30))
+        XCTAssertEqual(expectedForWeek45, expectedForWeek23.startForWeek(45))
+    }
+    
+    func testDateForInvalidWeekNum() {
+        //GIVEN
+        guard
+            let dateForWeek26 = FormatterUtils.dateFromString("03 Jul 2016", dateFormat: dateFormat)
+            else { XCTFail(); return}
+        //WHEN
+        //THEN
+        XCTAssertNil(dateForWeek26.startForWeek(53))
+        XCTAssertNil(dateForWeek26.startForWeek(70))        
+    }
+    
+    func testNumberOfWeeksInYear() {
+        //GIVEN
+        guard
+            let year2015 = FormatterUtils.dateFromString("01 Jan 2015", dateFormat: dateFormat),
+            let year2016 = FormatterUtils.dateFromString("01 Jan 2016", dateFormat: dateFormat),
+            let year2017 = FormatterUtils.dateFromString("01 Jan 2017", dateFormat: dateFormat),
+            let year2020 = FormatterUtils.dateFromString("01 Jan 2020", dateFormat: dateFormat)
+            else { XCTFail(); return}
+        let expectedWeeksNumber2015 = 53
+        let expectedWeeksNumber2016 = 52
+        let expectedWeeksNumber2017 = 52
+        let expectedWeeksNumber2020 = 53
+        //WHEN
+        //THEN
+        XCTAssertEqual(expectedWeeksNumber2015, year2015.numberOfWeeksInYear())
+        XCTAssertEqual(expectedWeeksNumber2016, year2016.numberOfWeeksInYear())
+        XCTAssertEqual(expectedWeeksNumber2017, year2017.numberOfWeeksInYear())
+        XCTAssertEqual(expectedWeeksNumber2020, year2020.numberOfWeeksInYear())
+    }
 }
