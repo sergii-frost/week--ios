@@ -19,6 +19,8 @@
 		450480311D28178800844EF4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480301D28178800844EF4 /* DesignableButton.swift */; };
 		450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
 		450598D11D294B1C00E649F8 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
+		452E906E1D72F7DB0017F3D2 /* iOS9PopoverFix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E906D1D72F7DB0017F3D2 /* iOS9PopoverFix.swift */; };
+		452E90701D7308680017F3D2 /* WeekPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E906F1D7308680017F3D2 /* WeekPickerViewController.swift */; };
 		453BD1CE1D28237F00B572D9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453BD1CC1D28237F00B572D9 /* Interface.storyboard */; };
 		453BD1D01D28237F00B572D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453BD1CF1D28237F00B572D9 /* Assets.xcassets */; };
 		453BD1D71D28237F00B572D9 /* watchWeeknum Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 453BD1D61D28237F00B572D9 /* watchWeeknum Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -31,6 +33,7 @@
 		453BD1F11D282B0F00B572D9 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480291D27FDC700844EF4 /* Localized.swift */; };
 		454FE6961D296AFC003009E9 /* FormatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450598CE1D293FB000E649F8 /* FormatterUtils.swift */; };
 		454FE6971D296B0B003009E9 /* DateTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504802B1D27FDE400844EF4 /* DateTools.swift */; };
+		456304A21D7312580061B959 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456304A11D7312580061B959 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,8 @@
 		4504802D1D280DF000844EF4 /* Designables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designables.swift; sourceTree = "<group>"; };
 		450480301D28178800844EF4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableButton.swift; path = Views/DesignableButton.swift; sourceTree = "<group>"; };
 		450598CE1D293FB000E649F8 /* FormatterUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatterUtils.swift; path = Utils/FormatterUtils.swift; sourceTree = "<group>"; };
+		452E906D1D72F7DB0017F3D2 /* iOS9PopoverFix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOS9PopoverFix.swift; sourceTree = "<group>"; };
+		452E906F1D7308680017F3D2 /* WeekPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekPickerViewController.swift; sourceTree = "<group>"; };
 		453BD1CA1D28237F00B572D9 /* watchWeeknum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchWeeknum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		453BD1CD1D28237F00B572D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		453BD1CF1D28237F00B572D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +113,7 @@
 		453BD1DF1D28237F00B572D9 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		453BD1E11D28237F00B572D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453BD1E31D28237F00B572D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		456304A11D7312580061B959 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,8 @@
 				450480281D27FD9A00844EF4 /* Extensions */,
 				450480021D27E96300844EF4 /* AppDelegate.swift */,
 				450480041D27E96300844EF4 /* ViewController.swift */,
+				452E906F1D7308680017F3D2 /* WeekPickerViewController.swift */,
+				452E906D1D72F7DB0017F3D2 /* iOS9PopoverFix.swift */,
 				450480061D27E96300844EF4 /* Main.storyboard */,
 				450480091D27E96300844EF4 /* Assets.xcassets */,
 				4504800B1D27E96300844EF4 /* LaunchScreen.storyboard */,
@@ -188,6 +196,7 @@
 				450480291D27FDC700844EF4 /* Localized.swift */,
 				4504802B1D27FDE400844EF4 /* DateTools.swift */,
 				4504802D1D280DF000844EF4 /* Designables.swift */,
+				456304A11D7312580061B959 /* Colors.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -396,10 +405,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */,
+				456304A21D7312580061B959 /* Colors.swift in Sources */,
 				4504802E1D280DF000844EF4 /* Designables.swift in Sources */,
 				450480051D27E96300844EF4 /* ViewController.swift in Sources */,
 				450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */,
 				4504802A1D27FDC700844EF4 /* Localized.swift in Sources */,
+				452E90701D7308680017F3D2 /* WeekPickerViewController.swift in Sources */,
+				452E906E1D72F7DB0017F3D2 /* iOS9PopoverFix.swift in Sources */,
 				450480031D27E96300844EF4 /* AppDelegate.swift in Sources */,
 				450480311D28178800844EF4 /* DesignableButton.swift in Sources */,
 			);
