@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, WeekPickerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weekInfoLabel: UILabel!
@@ -59,6 +59,35 @@ class ViewController: UIViewController {
     
     @IBAction func datePickerChangedValue(datePickerWithNewValue: UIDatePicker) {
         updateUIWithDate(datePickerWithNewValue.date)
+    }
+    
+    //MARK: - Week Popover methods
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "weekPickerSegue" {
+            if segue.destinationViewController is WeekPickerViewController {
+                let weekPickerViewController: WeekPickerViewController = segue.destinationViewController as! WeekPickerViewController
+                weekPickerViewController.delegate = self
+                weekPickerViewController.selectedDate = self.datePicker.date
+                //Some magic to make it work as popover
+                weekPickerViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+                weekPickerViewController.popoverPresentationController!.delegate = self
+                fixIOS9PopOverAnchor(segue)
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.None
+    }
+    
+    //MARK: - WeekPickerDelegate
+    
+    func didSelectWeek(weekNumber: Int?) {
+        if let weekNumber = weekNumber, let startForWeek = self.datePicker.date.startForWeek(weekNumber) {
+            self.datePicker.date = startForWeek
+            datePickerChangedValue(self.datePicker)
+        }
     }
     
     //MARK: - UI related methods

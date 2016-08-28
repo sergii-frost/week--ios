@@ -8,6 +8,8 @@
 
 import ClockKit
 
+let kWeekNumLong = "Week#"
+let kWeekNumShort = "W#"
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
     
@@ -33,8 +35,8 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getCurrentTimelineEntryForComplication(complication: CLKComplication, withHandler handler: ((CLKComplicationTimelineEntry?) -> Void)) {
         switch complication.family {
-        case .ModularSmall:
-            handler(getTimelineEntryForModularSmall(NSDate()))
+        case .ModularSmall, .CircularSmall, .UtilitarianSmall:
+            handler(getTimelineEntryFor(complication, date: NSDate()))
             break
         default:
             handler(nil)
@@ -46,10 +48,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the timeline entries prior to the given date
         var entries = [CLKComplicationTimelineEntry]()
         switch complication.family {
-        case .ModularSmall:
+        case .ModularSmall, .CircularSmall, .UtilitarianSmall:
             var targetDate = date.thisWeekStart()
             while targetDate != nil && entries.count < limit {
-                entries.append(getTimelineEntryForModularSmall(targetDate))
+                entries.append(getTimelineEntryFor(complication, date: targetDate))
                 targetDate = targetDate?.lastWeekStart()
             }
             handler(entries)
@@ -64,10 +66,10 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // Call the handler with the timeline entries after to the given date
         var entries = [CLKComplicationTimelineEntry]()
         switch complication.family {
-        case .ModularSmall:
+        case .ModularSmall, .CircularSmall, .UtilitarianSmall:
             var targetDate = date.nextWeekStart()
             while targetDate != nil && entries.count < limit {
-                entries.append(getTimelineEntryForModularSmall(targetDate))
+                entries.append(getTimelineEntryFor(complication, date: targetDate))
                 targetDate = targetDate?.nextWeekStart()
             }
             handler(entries)
@@ -93,6 +95,11 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         case .ModularSmall:
             handler(getTemplateForModularSmall(NSDate()))
             break
+        case .CircularSmall:
+            handler(getTemplateForCircularSmall(NSDate()))
+            break
+        case .UtilitarianSmall:
+            handler(getTemplateForUtilitarianSmall(NSDate()))
         default:
             handler(nil)
             break
@@ -107,19 +114,21 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
 
         let template = CLKComplicationTemplateModularSmallStackText()
-        template.line1TextProvider = CLKSimpleTextProvider.init(text: "Week#", shortText: "W#")
+        template.line1TextProvider = CLKSimpleTextProvider.init(text: kWeekNumLong, shortText: kWeekNumShort)
         template.line2TextProvider = CLKSimpleTextProvider.init(text: String(weekNumber))
         template.highlightLine2 = true
         return template
     }
     
-    private func getTimelineEntryForModularSmall(date: NSDate!) -> CLKComplicationTimelineEntry {
-        let timelineEntry = CLKComplicationTimelineEntry()
-        timelineEntry.date = date
-        if let template = getTemplateForModularSmall(date) {
-            timelineEntry.complicationTemplate = template
+    private func getTemplateForCircularSmall(date: NSDate) -> CLKComplicationTemplate? {
+        guard let weekNumber = date.weekNumber() else {
+            return nil
         }
-        return timelineEntry
+        
+        let template = CLKComplicationTemplateCircularSmallStackText()
+        template.line1TextProvider = CLKSimpleTextProvider.init(text: kWeekNumLong, shortText: kWeekNumShort)
+        template.line2TextProvider = CLKSimpleTextProvider.init(text: String(weekNumber))
+        return template
     }
     
     private func getTemplateForUtilitarianSmall(date: NSDate) -> CLKComplicationTemplate? {
@@ -128,8 +137,32 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         }
         
         let template = CLKComplicationTemplateUtilitarianSmallFlat()
-        template.textProvider = CLKSimpleTextProvider.init(text: String(weekNumber))
+        template.textProvider = CLKSimpleTextProvider.init(text: "\(kWeekNumShort) \(weekNumber)", shortText: String(weekNumber))
         return template
     }
-
+    
+    //MARK: - Private Timeline Entry methods
+    
+    private func getTimelineEntryFor(complication: CLKComplication!, date: NSDate!) -> CLKComplicationTimelineEntry {
+        let timelineEntry = CLKComplicationTimelineEntry()
+        timelineEntry.date = date
+        var template: CLKComplicationTemplate?
+        switch complication.family {
+        case .ModularSmall:
+            template = getTemplateForModularSmall(date)
+            break
+        case .CircularSmall:
+            template = getTemplateForCircularSmall(date)
+            break
+        case .UtilitarianSmall:
+            template = getTemplateForUtilitarianSmall(date)
+            break
+        default:
+            break
+        }
+        if let template = template {
+            timelineEntry.complicationTemplate = template
+        }
+        return timelineEntry
+    }
 }
