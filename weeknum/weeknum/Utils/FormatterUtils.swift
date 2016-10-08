@@ -12,23 +12,23 @@ class FormatterUtils {
     static let kDateFormat = "EEE, dd MMM yyyy"
     static let kShortDateFormat = "dd MMM"
     
-    private static func dateFormatter(dateFormat: String) -> NSDateFormatter {
-        let df = NSDateFormatter()
-        df.locale = NSLocale.currentLocale()
+    fileprivate static func dateFormatter(_ dateFormat: String) -> DateFormatter {
+        let df = DateFormatter()
+        df.locale = Locale.current
         df.dateFormat = dateFormat
         return df
     }
     
-    static func formattedDate(date: NSDate?, dateFormat: String = kDateFormat) -> String? {
+    static func formattedDate(_ date: Date?, dateFormat: String = kDateFormat) -> String? {
         guard let date = date else {return nil}
-        return dateFormatter(dateFormat).stringFromDate(date)
+        return dateFormatter(dateFormat).string(from: date)
     }
     
-    static func dateFromString(string: String, dateFormat: String) -> NSDate? {
-        return dateFormatter(dateFormat).dateFromString(string)
+    static func dateFromString(_ string: String, dateFormat: String) -> Date? {
+        return dateFormatter(dateFormat).date(from: string)
     }
     
-    static func getWeekInfo(date: NSDate?, shortDateFormat: String = kShortDateFormat) -> String? {
+    static func getWeekInfo(_ date: Date?, shortDateFormat: String = kShortDateFormat) -> String? {
         guard
             let date = date,
             let weekStart = formattedDate(date.thisWeekStart(), dateFormat: shortDateFormat),

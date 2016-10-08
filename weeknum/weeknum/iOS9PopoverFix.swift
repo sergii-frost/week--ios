@@ -19,13 +19,13 @@ import UIKit
 
 extension UIViewController
 {
-    func fixIOS9PopOverAnchor(segue:UIStoryboardSegue?)
+    func fixIOS9PopOverAnchor(_ segue:UIStoryboardSegue?)
     {
         guard #available(iOS 9.0, *) else { return }
-        if let popOver = segue?.destinationViewController.popoverPresentationController,
+        if let popOver = segue?.destination.popoverPresentationController,
             let anchor  = popOver.sourceView
-            where popOver.sourceRect == CGRect()
-                && segue!.sourceViewController === self
+            , popOver.sourceRect == CGRect()
+                && segue!.source === self
         { popOver.sourceRect = anchor.bounds }
     }       
 }

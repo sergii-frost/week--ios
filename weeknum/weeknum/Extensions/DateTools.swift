@@ -9,29 +9,29 @@
 import Foundation
 
 enum WeekDays: Int {
-    case Sunday = 1, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
     
     var name: String {
         switch self {
-        case .Monday:       return "Mon".localized
-        case .Tuesday:      return "Tue".localized
-        case .Wednesday:    return "Wed".localized
-        case .Thursday:     return "Thu".localized
-        case .Friday:       return "Fri".localized
-        case .Saturday:     return "Sat".localized
-        case .Sunday:       return "Sun".localized
+        case .monday:       return "Mon".localized
+        case .tuesday:      return "Tue".localized
+        case .wednesday:    return "Wed".localized
+        case .thursday:     return "Thu".localized
+        case .friday:       return "Fri".localized
+        case .saturday:     return "Sat".localized
+        case .sunday:       return "Sun".localized
         }
     }
     
     var daysLeftTillNextWeek: Double {
         switch self {
-        case .Monday:   return 7
-        case .Tuesday:  return 6
-        case .Wednesday:return 5
-        case .Thursday: return 4
-        case .Friday:   return 3
-        case .Saturday: return 2
-        case .Sunday:   return 1
+        case .monday:   return 7
+        case .tuesday:  return 6
+        case .wednesday:return 5
+        case .thursday: return 4
+        case .friday:   return 3
+        case .saturday: return 2
+        case .sunday:   return 1
         }
     }
     
@@ -40,125 +40,111 @@ enum WeekDays: Int {
     }
 }
 
-let DAY: NSTimeInterval = 60*60*24
+let DAY: TimeInterval = 60*60*24
 let DAYS_IN_WEEK: Int = 7
-let WEEK: NSTimeInterval = DAY*NSTimeInterval(DAYS_IN_WEEK)
+let WEEK: TimeInterval = DAY*TimeInterval(DAYS_IN_WEEK)
 
-extension NSDate {
+extension Date {
     
-    private func startOfDay() -> NSDate? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar()
-            else { return nil }
-        
-        cal.timeZone = NSTimeZone.systemTimeZone()
-        return cal.startOfDayForDate(self)
+    fileprivate func startOfDay() -> Date? {
+        var cal: Calendar = Calendar.current
+        cal.timeZone = TimeZone.current
+        return cal.startOfDay(for: self)
     }
 
     //MARK: - Day of Week, Week Number
     
     func dayOfWeek() -> Int? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate: self)
-            else { return nil }
+        let comp: DateComponents = (Calendar.current as NSCalendar).components(.weekday, from: self)
         
         return comp.weekday
     }
     
     func weekNumber() -> Int? {
-        guard
-            let cal: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierISO8601),
-            let comp: NSDateComponents = cal.components(.WeekOfYear, fromDate: self)
-            else { return nil }
+        let cal: Calendar = Calendar(identifier: Calendar.Identifier.iso8601)
+        let comp: DateComponents = (cal as NSCalendar).components(.weekOfYear, from: self)
         
         return comp.weekOfYear
     }
     
     func weeksRangeInYear() -> [Int]? {
-        guard let calendar = NSCalendar(identifier: NSCalendarIdentifierISO8601) else { return nil}
-        let weekRange = calendar.rangeOfUnit(.WeekOfYear, inUnit: .Year, forDate: self)
+        let calendar = Calendar(identifier: Calendar.Identifier.iso8601)
+        let weekRange = (calendar as NSCalendar).range(of: .weekOfYear, in: .year, for: self)
         return Array(weekRange.location..<weekRange.location + weekRange.length)
     }
     
     //MARK: - Day(s) before/after
     
-    func daysBefore(days: Int) -> NSDate? {
+    func daysBefore(_ days: Int) -> Date? {
         guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.dateByAddingTimeInterval(-DAY*NSTimeInterval(days))
+        return startOfDay.addingTimeInterval(-DAY*TimeInterval(days))
     }
     
-    func dayBefore() -> NSDate? {
+    func dayBefore() -> Date? {
         return daysBefore(1)
     }
     
-    func daysAfter(days: Int) -> NSDate? {
+    func daysAfter(_ days: Int) -> Date? {
         guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.dateByAddingTimeInterval(DAY*NSTimeInterval(days))
+        return startOfDay.addingTimeInterval(DAY*TimeInterval(days))
     }
     
-    func dayAfter() -> NSDate? {
+    func dayAfter() -> Date? {
         return daysAfter(1)
     }
     
-    func weekBefore() -> NSDate? {
+    func weekBefore() -> Date? {
         return daysBefore(DAYS_IN_WEEK)
     }
     
-    func weekAfter() -> NSDate? {
+    func weekAfter() -> Date? {
         return daysAfter(DAYS_IN_WEEK)
     }
     
     //MARK: - last/this/next week start dates logics
     
-    func nextWeekStart() -> NSDate? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate: self)
-            else { return nil }
+    func nextWeekStart() -> Date? {
+        let cal: Calendar = Calendar.current
+        let comp: DateComponents = (cal as NSCalendar).components(.weekday, from: self)
         
-        let startOfDay = cal.startOfDayForDate(self)
-        guard let weekday = WeekDays(rawValue: comp.weekday) else {
+        let startOfDay = cal.startOfDay(for: self)
+        guard let weekday = WeekDays(rawValue: comp.weekday!) else {
             return nil
         }
-        return startOfDay.dateByAddingTimeInterval(DAY*weekday.daysLeftTillNextWeek)
+        return startOfDay.addingTimeInterval(DAY*weekday.daysLeftTillNextWeek)
         
     }
     
-    func thisWeekStart() -> NSDate? {
-        guard
-            let cal: NSCalendar = NSCalendar.currentCalendar(),
-            let comp: NSDateComponents = cal.components(.Weekday, fromDate: self)
-            else { return nil }
+    func thisWeekStart() -> Date? {
+        let cal: Calendar = Calendar.current
+        let comp: DateComponents = (cal as NSCalendar).components(.weekday, from: self)
         
-        let startOfDay = cal.startOfDayForDate(self)
-        guard let weekday = WeekDays(rawValue: comp.weekday) else {
+        let startOfDay = cal.startOfDay(for: self)
+        guard let weekday = WeekDays(rawValue: comp.weekday!) else {
             return nil
         }
-        return startOfDay.dateByAddingTimeInterval(DAY*(weekday.daysLeftTillNextWeek-7))
+        return startOfDay.addingTimeInterval(DAY*(weekday.daysLeftTillNextWeek-7))
     }
     
-    func lastWeekStart() -> NSDate? {
+    func lastWeekStart() -> Date? {
         guard let thisWeekStart = self.thisWeekStart() else {
             return nil
         }
-        return thisWeekStart.dateByAddingTimeInterval(-WEEK)
+        return thisWeekStart.addingTimeInterval(-WEEK)
     }
     
-    func startForWeek(week: Int?) -> NSDate? {
-        guard
-            let thisWeekStart = self.thisWeekStart(),
-            let cal: NSCalendar = NSCalendar(identifier: NSCalendarIdentifierISO8601),
-            let comp: NSDateComponents = cal.components([.Weekday, .WeekOfYear, .Year], fromDate: thisWeekStart)
-            else { return nil }
+    func startForWeek(_ week: Int?) -> Date? {
+        guard let thisWeekStart = self.thisWeekStart() else { return nil }
+        let cal: Calendar = Calendar(identifier: Calendar.Identifier.iso8601)
+        var comp: DateComponents = (cal as NSCalendar).components([.weekday, .weekOfYear, .year], from: thisWeekStart)
 
-        guard let week = week else {
+        guard let week = week, let last = self.weeksRangeInYear()?.last else {
             return nil
         }
-        if week > self.weeksRangeInYear()?.last {
+        if week > last {
             return nil
         }
         comp.weekOfYear = week
-        return cal.dateFromComponents(comp)
+        return cal.date(from: comp)
     }
 }

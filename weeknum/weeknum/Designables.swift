@@ -31,19 +31,19 @@ extension UIView {
     
     @IBInspectable var borderColor: UIColor? {
         get {
-            return UIColor(CGColor: layer.borderColor!)
+            return UIColor(cgColor: layer.borderColor!)
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
     
-    func fadeTransition(duration:CFTimeInterval = CATransaction.animationDuration()) {
+    func fadeTransition(_ duration:CFTimeInterval = CATransaction.animationDuration()) {
         let animation:CATransition = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
             kCAMediaTimingFunctionEaseInEaseOut)
         animation.type = kCATransitionFade
         animation.duration = duration
-        self.layer.addAnimation(animation, forKey: kCATransitionFade)
+        self.layer.add(animation, forKey: kCATransitionFade)
     }
 }

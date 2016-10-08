@@ -10,12 +10,12 @@ import Foundation
 
 public extension String {
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
 }
 
 public extension NSString {
     var localized: NSString {
-        return NSLocalizedString(self as String, tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "") as NSString
+        return NSLocalizedString(self as String, tableName: nil, bundle: Bundle.main, value: "", comment: "") as NSString
     }
 }

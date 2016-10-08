@@ -11,7 +11,7 @@ import UIKit
 public extension UIColor {
     
     static func weekNumWhiteColor() -> UIColor {
-        return UIColor.whiteColor()
+        return UIColor.white
     }
     
     static func weekNumMainColor() -> UIColor {
