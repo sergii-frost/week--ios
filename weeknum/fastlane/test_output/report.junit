@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='weeknumTests.xctest' tests='10' failures='2'>
+  <testsuite name='weeknumTests.weeknumTests' tests='10' failures='2'>
+    <testcase classname='weeknumTests.weeknumTests' name='testDateForInvalidWeekNum' time='0.032'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testDateForWeekNum' time='0.003'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testDaysAfterDate' time='0.002'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testDaysBeforeDate' time='0.002'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testNextWeeksForDate' time='0.001'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testNextWeeksForDateNearDST'>
+      <failure message='XCTAssertEqual failed: (&quot;Optional(2016-10-30 23:00:00 +0000)&quot;) is not equal to (&quot;Optional(2016-10-30 22:00:00 +0000)&quot;) - '>weeknumTests/weeknumTests.swift:124</failure>
+    </testcase>
+    <testcase classname='weeknumTests.weeknumTests' name='testNextWeeksForDateNearDST'>
+      <failure message='XCTAssertEqual failed: (&quot;Optional(2016-11-06 23:00:00 +0000)&quot;) is not equal to (&quot;Optional(2016-10-30 22:00:00 +0000)&quot;) - '>weeknumTests/weeknumTests.swift:125</failure>
+    </testcase>
+    <testcase classname='weeknumTests.weeknumTests' name='testNumberOfWeeksInYear' time='0.001'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testPreviousWeeksForDate' time='0.001'/>
+    <testcase classname='weeknumTests.weeknumTests' name='testThisWeekForDate' time='0.004'/>
+  </testsuite>
+</testsuites>
