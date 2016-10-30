@@ -76,7 +76,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qTZ-Sx-MQG" customClass="DesignableButton" customModule="Week_" customModuleProvider="target">
-                                <rect key="frame" x="226" y="362" width="73.5" height="30"/>
+                                <rect key="frame" x="226" y="362" width="74" height="30"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <state key="normal" title="--&gt;"/>
                                 <userDefinedRuntimeAttributes>
@@ -95,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z0V-TP-vxc" customClass="DesignableButton" customModule="Week_" customModuleProvider="target">
-                                <rect key="frame" x="20" y="362" width="73.5" height="30"/>
+                                <rect key="frame" x="20" y="362" width="74" height="30"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <state key="normal" title="&lt;--"/>
                                 <userDefinedRuntimeAttributes>
@@ -114,7 +114,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7E5-BN-ClF">
-                                <rect key="frame" x="0.0" y="396" width="320" height="171.5"/>
+                                <rect key="frame" x="0.0" y="396" width="320" height="172"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="200" id="F07-Lx-pK4"/>
