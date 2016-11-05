@@ -35,11 +35,28 @@ class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fitSizeToShowAllWeekNumbers()
         guard let weekToSelect = selectedDate.weekNumber() ?? Date().weekNumber() else {
             return
         }
         weekNumbersCollectionView.selectItem(at: indexPathForWeek(weekToSelect), animated: true, scrollPosition: UICollectionViewScrollPosition())
     }
+    
+    /** 
+    Checks Popover Presentation controller to get actual width of presented controller.
+    
+    Then resizes popover to fit whole collection view content.
+    */
+    private func fitSizeToShowAllWeekNumbers() {
+        //Tricky workaround to make popover fit collection view size
+        if let popoverFrame = self.popoverPresentationController?.sourceView?.frame {
+            self.weekNumbersCollectionView.frame.size.width = popoverFrame.width
+            self.weekNumbersCollectionView.collectionViewLayout.invalidateLayout()
+            self.preferredContentSize = self.weekNumbersCollectionView.collectionViewLayout.collectionViewContentSize
+        }
+    }
+    
+    //MARK: - UICollectionView Delegate and DataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weeksRange.count

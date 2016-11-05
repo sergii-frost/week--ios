@@ -222,31 +222,30 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PBg-a7-BJU">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VQM-Sm-Utl">
-                                    <size key="itemSize" width="40" height="40"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="VQM-Sm-Utl">
+                                    <size key="itemSize" width="36" height="36"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                                    <inset key="sectionInset" minX="4" minY="4" maxX="4" maxY="4"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeekNumberCollectionViewCell" id="xSH-oC-Hce" customClass="WeekNumberCollectionViewCell" customModule="Week_" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="4" y="4" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hY9-SG-KMw" userLabel="SelectorView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY9-SG-KMw" userLabel="SelectorView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="20"/>
+                                                            <real key="value" value="18"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTA-CV-IGn">
-                                                    <rect key="frame" x="0.0" y="8.5" width="40" height="23.5"/>
+                                                    <rect key="frame" x="0.0" y="6.5" width="36" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
                                                     <color key="textColor" red="0.1137254902" green="0.69411764710000001" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -254,11 +253,17 @@
                                             </subviews>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="hY9-SG-KMw" firstAttribute="top" secondItem="xSH-oC-Hce" secondAttribute="top" id="4tP-aO-jmL"/>
                                             <constraint firstAttribute="trailing" secondItem="nTA-CV-IGn" secondAttribute="trailing" id="6DC-KC-9YO"/>
+                                            <constraint firstItem="nTA-CV-IGn" firstAttribute="centerY" secondItem="xSH-oC-Hce" secondAttribute="centerY" id="8gO-8K-wBU"/>
                                             <constraint firstItem="nTA-CV-IGn" firstAttribute="leading" secondItem="xSH-oC-Hce" secondAttribute="leading" id="9TX-LP-Fx0"/>
+                                            <constraint firstAttribute="trailing" secondItem="hY9-SG-KMw" secondAttribute="trailing" id="CLI-BO-jzF"/>
                                             <constraint firstItem="nTA-CV-IGn" firstAttribute="centerY" secondItem="xSH-oC-Hce" secondAttribute="centerY" id="DNc-ye-LJb"/>
+                                            <constraint firstItem="nTA-CV-IGn" firstAttribute="centerX" secondItem="xSH-oC-Hce" secondAttribute="centerX" id="F2C-AY-sCS"/>
+                                            <constraint firstAttribute="bottom" secondItem="hY9-SG-KMw" secondAttribute="bottom" id="NC6-Nk-rYp"/>
+                                            <constraint firstItem="hY9-SG-KMw" firstAttribute="leading" secondItem="xSH-oC-Hce" secondAttribute="leading" id="O9v-8m-vwr"/>
                                         </constraints>
-                                        <size key="customSize" width="40" height="40"/>
+                                        <size key="customSize" width="36" height="36"/>
                                         <connections>
                                             <outlet property="selectorView" destination="hY9-SG-KMw" id="irf-EJ-Aea"/>
                                             <outlet property="weekNumberLabel" destination="nTA-CV-IGn" id="bOE-Y5-MiW"/>
@@ -278,7 +283,7 @@
                             <constraint firstAttribute="trailing" secondItem="PBg-a7-BJU" secondAttribute="trailing" id="tvL-cq-zQ2"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="400" height="400"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="400" height="300"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
