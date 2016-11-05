@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, WeekPickerDelegate {
 
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var weekInfoLabel: UILabel!
     @IBOutlet weak var weekNumberLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -94,10 +94,10 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     fileprivate func updateUIWithDate(_ date: Date) {
         if  let formattedDate = FormatterUtils.formattedDate(date) {
-            self.dateLabel.fadeTransition()
-            self.dateLabel.text = formattedDate
+            self.dateLabel?.fadeTransition()
+            self.dateLabel?.text = formattedDate
         } else {
-            self.dateLabel.text = nil
+            self.dateLabel?.text = nil
         }
         
         if let weekInfo = FormatterUtils.getWeekInfo(date) {
