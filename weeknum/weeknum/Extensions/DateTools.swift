@@ -23,7 +23,7 @@ enum WeekDays: Int {
         }
     }
     
-    var daysLeftTillNextWeek: Double {
+    var daysLeftTillNextWeek: Int {
         switch self {
         case .monday:   return 7
         case .tuesday:  return 6
@@ -40,9 +40,7 @@ enum WeekDays: Int {
     }
 }
 
-let DAY: TimeInterval = 60*60*24
 let DAYS_IN_WEEK: Int = 7
-let WEEK: TimeInterval = DAY*TimeInterval(DAYS_IN_WEEK)
 
 extension Date {
     
@@ -55,14 +53,14 @@ extension Date {
     //MARK: - Day of Week, Week Number
     
     func dayOfWeek() -> Int? {
-        let comp: DateComponents = (Calendar.current as NSCalendar).components(.weekday, from: self)
+        let comp: DateComponents = Calendar.current.dateComponents([.weekday], from: self)
         
         return comp.weekday
     }
     
     func weekNumber() -> Int? {
         let cal: Calendar = Calendar(identifier: Calendar.Identifier.iso8601)
-        let comp: DateComponents = (cal as NSCalendar).components(.weekOfYear, from: self)
+        let comp: DateComponents = cal.dateComponents([.weekOfYear], from: self)
         
         return comp.weekOfYear
     }
@@ -76,8 +74,7 @@ extension Date {
     //MARK: - Day(s) before/after
     
     func daysBefore(_ days: Int) -> Date? {
-        guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.addingTimeInterval(-DAY*TimeInterval(days))
+        return Calendar.current.date(byAdding: .day, value: -days, to: self)?.startOfDay()
     }
     
     func dayBefore() -> Date? {
@@ -85,8 +82,7 @@ extension Date {
     }
     
     func daysAfter(_ days: Int) -> Date? {
-        guard let startOfDay = self.startOfDay() else { return nil }
-        return startOfDay.addingTimeInterval(DAY*TimeInterval(days))
+        return Calendar.current.date(byAdding: .day, value: days, to: self)?.startOfDay()
     }
     
     func dayAfter() -> Date? {
@@ -103,40 +99,35 @@ extension Date {
     
     //MARK: - last/this/next week start dates logics
     
-    func nextWeekStart() -> Date? {
-        let cal: Calendar = Calendar.current
-        let comp: DateComponents = (cal as NSCalendar).components(.weekday, from: self)
-        
-        let startOfDay = cal.startOfDay(for: self)
-        guard let weekday = WeekDays(rawValue: comp.weekday!) else {
-            return nil
-        }
-        return startOfDay.addingTimeInterval(DAY*weekday.daysLeftTillNextWeek)
-        
-    }
-    
     func thisWeekStart() -> Date? {
         let cal: Calendar = Calendar.current
-        let comp: DateComponents = (cal as NSCalendar).components(.weekday, from: self)
+        let comp: DateComponents = cal.dateComponents([.weekday], from: self)
         
-        let startOfDay = cal.startOfDay(for: self)
         guard let weekday = WeekDays(rawValue: comp.weekday!) else {
             return nil
         }
-        return startOfDay.addingTimeInterval(DAY*(weekday.daysLeftTillNextWeek-7))
+        return cal.date(byAdding: .day, value: weekday.daysLeftTillNextWeek - DAYS_IN_WEEK, to: self)
     }
     
-    func lastWeekStart() -> Date? {
+    func weekStart(byAddingWeeks weeks: Int) -> Date? {
         guard let thisWeekStart = self.thisWeekStart() else {
             return nil
         }
-        return thisWeekStart.addingTimeInterval(-WEEK)
+        return Calendar.current.date(byAdding: .weekOfYear, value: weeks, to: thisWeekStart)
+    }
+    
+    func nextWeekStart() -> Date? {
+        return weekStart(byAddingWeeks: 1)
+    }
+    
+    func lastWeekStart() -> Date? {
+        return weekStart(byAddingWeeks: -1)
     }
     
     func startForWeek(_ week: Int?) -> Date? {
         guard let thisWeekStart = self.thisWeekStart() else { return nil }
         let cal: Calendar = Calendar(identifier: Calendar.Identifier.iso8601)
-        var comp: DateComponents = (cal as NSCalendar).components([.weekday, .weekOfYear, .year], from: thisWeekStart)
+        var comp: DateComponents = cal.dateComponents([.weekday, .weekOfYear, .year], from: thisWeekStart)
 
         guard let week = week, let last = self.weeksRangeInYear()?.last else {
             return nil
