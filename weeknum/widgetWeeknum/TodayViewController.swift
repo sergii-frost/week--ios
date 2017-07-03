@@ -57,7 +57,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     fileprivate func updateUIWithDate(_ date: Date?) {
         self.selectedDate = date ?? Date()
-        if let weekInfo = FormatterUtils.getWeekInfo(self.selectedDate) {            
+        if let weekInfo = FormatterUtils.getWeekInfo(self.selectedDate) {
             self.weekInfoLabel?.text = weekInfo
         } else {
             self.weekInfoLabel?.text = nil

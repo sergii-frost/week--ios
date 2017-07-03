@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -33,15 +33,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="G1F-0o-tah" appends="YES" id="yLL-49-igX"/>
+                                </connections>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTm-Q5-giH" userLabel="Next Week Button">
+                                <rect key="frame" x="220" y="0.0" width="100" height="120"/>
+                                <state key="normal" image="ic_arrow_forward_dark_grey">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateForNextWeek" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="I8S-Hf-Agy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZH-no-xMv" userLabel="Previous Week Button">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="1Kw-9V-WnT"/>
+                                </constraints>
+                                <state key="normal" image="ic_arrow_back_dark_grey">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="updateForPreviousWeek" destination="M4Y-Lb-cyx" eventType="touchUpInside" id="mvA-XB-AHr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="xZH-no-xMv" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="4Lm-hX-ahd"/>
                             <constraint firstAttribute="trailing" secondItem="lh1-yF-v92" secondAttribute="trailing" constant="16" id="5Pm-8t-N9g"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="xZH-no-xMv" secondAttribute="bottom" id="Bae-NQ-Rg4"/>
                             <constraint firstItem="lh1-yF-v92" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" constant="16" id="F3e-bL-nCD"/>
+                            <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="LTm-Q5-giH" secondAttribute="bottom" id="MIR-Ln-T2b"/>
+                            <constraint firstAttribute="trailing" secondItem="LTm-Q5-giH" secondAttribute="trailing" id="Ude-GA-t1F"/>
                             <constraint firstItem="hOU-dQ-lbl" firstAttribute="top" secondItem="lh1-yF-v92" secondAttribute="bottom" id="VMr-rw-1Y3"/>
                             <constraint firstAttribute="bottom" secondItem="hOU-dQ-lbl" secondAttribute="bottom" constant="4" id="Ywt-uN-fqv"/>
                             <constraint firstItem="hOU-dQ-lbl" firstAttribute="centerX" secondItem="S3S-Oj-5AN" secondAttribute="centerX" id="ZVQ-fo-ww5"/>
                             <constraint firstItem="lh1-yF-v92" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="4" id="hMc-1X-NPr"/>
+                            <constraint firstItem="LTm-Q5-giH" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="hOS-xV-mCf"/>
+                            <constraint firstItem="LTm-Q5-giH" firstAttribute="width" secondItem="xZH-no-xMv" secondAttribute="width" id="vYT-ay-86q"/>
+                            <constraint firstItem="xZH-no-xMv" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" id="yyN-bs-dBe"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -56,8 +87,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="G1F-0o-tah">
+                    <connections>
+                        <action selector="updateForToday" destination="M4Y-Lb-cyx" id="YvX-eK-rab"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="33.600000000000001" y="38.680659670164921"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_arrow_back_dark_grey" width="32" height="32"/>
+        <image name="ic_arrow_forward_dark_grey" width="32" height="32"/>
+    </resources>
 </document>
