@@ -9,7 +9,7 @@
 import UIKit
 
 protocol WeekPickerDelegate: class {
-    func didSelectWeek(weekNumber: Int?)
+    func didSelectWeek(_ weekNumber: Int?)
 }
 
 class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -26,7 +26,7 @@ class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UI
             }
         }
     }
-    var selectedDate: NSDate = NSDate() {
+    var selectedDate: Date = Date() {
         didSet {
             guard let range = self.selectedDate.weeksRangeInYear() else {return}
             self.weeksRange = range
@@ -35,38 +35,55 @@ class WeekPickerViewController: UIViewController, UICollectionViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let weekToSelect = selectedDate.weekNumber() ?? NSDate().weekNumber() else {
+        fitSizeToShowAllWeekNumbers()
+        guard let weekToSelect = selectedDate.weekNumber() ?? Date().weekNumber() else {
             return
         }
-        weekNumbersCollectionView.selectItemAtIndexPath(indexPathForWeek(weekToSelect), animated: true, scrollPosition: UICollectionViewScrollPosition.None)
+        weekNumbersCollectionView.selectItem(at: indexPathForWeek(weekToSelect), animated: true, scrollPosition: UICollectionViewScrollPosition())
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    /** 
+    Checks Popover Presentation controller to get actual width of presented controller.
+    
+    Then resizes popover to fit whole collection view content.
+    */
+    private func fitSizeToShowAllWeekNumbers() {
+        //Tricky workaround to make popover fit collection view size
+        if let popoverFrame = self.popoverPresentationController?.sourceView?.frame {
+            self.weekNumbersCollectionView.frame.size.width = popoverFrame.width
+            self.weekNumbersCollectionView.collectionViewLayout.invalidateLayout()
+            self.preferredContentSize = self.weekNumbersCollectionView.collectionViewLayout.collectionViewContentSize
+        }
+    }
+    
+    //MARK: - UICollectionView Delegate and DataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return weeksRange.count
     }
 
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("WeekNumberCollectionViewCell", forIndexPath: indexPath) as! WeekNumberCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeekNumberCollectionViewCell", for: indexPath) as! WeekNumberCollectionViewCell
         cell.weekNumberLabel.text = "\(weekForIndexPath(indexPath))"
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        collectionView.selectItemAtIndexPath(indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition.None)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: UICollectionViewScrollPosition())
         if let delegate = self.delegate {
             delegate.didSelectWeek(weekForIndexPath(indexPath))
         }
     }
     
-    private func weekForIndexPath(indexPath: NSIndexPath) -> Int {
-        return weeksRange[indexPath.row]
+    fileprivate func weekForIndexPath(_ indexPath: IndexPath) -> Int {
+        return weeksRange[(indexPath as NSIndexPath).row]
     }
     
-    private func indexPathForWeek(weekNum: Int) -> NSIndexPath {
-        guard let weekIndex = weeksRange.indexOf(weekNum) else {
-            return NSIndexPath(forRow: 0, inSection: 0)
+    fileprivate func indexPathForWeek(_ weekNum: Int) -> IndexPath {
+        guard let weekIndex = weeksRange.index(of: weekNum) else {
+            return IndexPath(row: 0, section: 0)
         }
-        return NSIndexPath(forRow: weekIndex, inSection: 0)
+        return IndexPath(row: weekIndex, section: 0)
     }
 }
 
@@ -74,19 +91,19 @@ class WeekNumberCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var selectorView: UIView!
     @IBOutlet weak var weekNumberLabel: UILabel!
     
-    override var selected: Bool {
+    override var isSelected: Bool {
         didSet {
-            markSelected(self.selected)
+            markSelected(self.isSelected)
         }
     }
     
-    override var highlighted: Bool {
+    override var isHighlighted: Bool {
         didSet {
-            markSelected(self.highlighted)
+            markSelected(self.isHighlighted)
         }
     }
     
-    private func markSelected(selected: Bool) {
+    fileprivate func markSelected(_ selected: Bool) {
         selectorView.backgroundColor = selected ? UIColor.weekNumMainColor() : UIColor.weekNumWhiteColor()
         weekNumberLabel.textColor = selected ? UIColor.weekNumWhiteColor() : UIColor.weekNumMainColor()
     }

@@ -15,10 +15,10 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var dateDetailsLabel: WKInterfaceLabel!
     @IBOutlet var weekInfoLabel: WKInterfaceLabel!
     @IBOutlet var weekNumberLabel: WKInterfaceLabel!
-    var currentDate: NSDate = NSDate()
+    var currentDate: Date = Date()
     
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         
         // Configure interface objects here.
     }
@@ -34,7 +34,7 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    private func updateUIWithDate(date: NSDate?) {
+    fileprivate func updateUIWithDate(_ date: Date?) {
         guard let date = date else {return}
         currentDate = date
         self.dateDetailsLabel.setText(FormatterUtils.formattedDate(currentDate))
@@ -51,7 +51,7 @@ class InterfaceController: WKInterfaceController {
     }
 
     @IBAction func updateForToday() {
-        updateUIWithDate(NSDate())
+        updateUIWithDate(Date())
     }
     
     @IBAction func updateForPreviousWeek() {

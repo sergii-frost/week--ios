@@ -10,35 +10,35 @@ import UIKit
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, WeekPickerDelegate {
 
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel?
     @IBOutlet weak var weekInfoLabel: UILabel!
     @IBOutlet weak var weekNumberLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.updateForToday), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.updateForToday), name: NSNotification.Name.UIApplicationDidBecomeActive, object: nil)
         setupDatePicker()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateForToday()
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     //MARK: - Date Picker setup
     
-    private func setupDatePicker() {
-        datePicker.setValue(UIColor.whiteColor(), forKey: "textColor")
-        datePicker.sendAction("setHighlightsToday:", to: nil, forEvent: nil)
+    fileprivate func setupDatePicker() {
+        datePicker.setValue(UIColor.white, forKey: "textColor")
+        datePicker.sendAction("setHighlightsToday:", to: nil, for: nil)
     }
     
     @IBAction func updateForToday() {
-        self.datePicker.date = NSDate()
+        self.datePicker.date = Date()
         datePickerChangedValue(self.datePicker)
     }
     
@@ -57,33 +57,33 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     }
 
     
-    @IBAction func datePickerChangedValue(datePickerWithNewValue: UIDatePicker) {
+    @IBAction func datePickerChangedValue(_ datePickerWithNewValue: UIDatePicker) {
         updateUIWithDate(datePickerWithNewValue.date)
     }
     
     //MARK: - Week Popover methods
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "weekPickerSegue" {
-            if segue.destinationViewController is WeekPickerViewController {
-                let weekPickerViewController: WeekPickerViewController = segue.destinationViewController as! WeekPickerViewController
+            if segue.destination is WeekPickerViewController {
+                let weekPickerViewController: WeekPickerViewController = segue.destination as! WeekPickerViewController
                 weekPickerViewController.delegate = self
                 weekPickerViewController.selectedDate = self.datePicker.date
                 //Some magic to make it work as popover
-                weekPickerViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+                weekPickerViewController.modalPresentationStyle = UIModalPresentationStyle.popover
                 weekPickerViewController.popoverPresentationController!.delegate = self
                 fixIOS9PopOverAnchor(segue)
             }
         }
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
-        return UIModalPresentationStyle.None
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return UIModalPresentationStyle.none
     }
     
     //MARK: - WeekPickerDelegate
     
-    func didSelectWeek(weekNumber: Int?) {
+    func didSelectWeek(_ weekNumber: Int?) {
         if let weekNumber = weekNumber, let startForWeek = self.datePicker.date.startForWeek(weekNumber) {
             self.datePicker.date = startForWeek
             datePickerChangedValue(self.datePicker)
@@ -92,12 +92,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     //MARK: - UI related methods
     
-    private func updateUIWithDate(date: NSDate) {
+    fileprivate func updateUIWithDate(_ date: Date) {
         if  let formattedDate = FormatterUtils.formattedDate(date) {
-            self.dateLabel.fadeTransition()
-            self.dateLabel.text = formattedDate
+            self.dateLabel?.fadeTransition()
+            self.dateLabel?.text = formattedDate
         } else {
-            self.dateLabel.text = nil
+            self.dateLabel?.text = nil
         }
         
         if let weekInfo = FormatterUtils.getWeekInfo(date) {

@@ -60,7 +60,7 @@ class weeknumTests: XCTestCase {
     func testThisWeekForDate() {
         //GIVEN
         guard
-            let dates: [Int: NSDate?] =
+            let dates: [Int: Date?] =
             [
                 53: FormatterUtils.dateFromString("03 Jan 2016", dateFormat: dateFormat),
                 5:  FormatterUtils.dateFromString("03 Feb 2016", dateFormat: dateFormat),
@@ -79,7 +79,7 @@ class weeknumTests: XCTestCase {
             else { XCTFail(); return}
         //WHEN
         //THEN
-        dates.forEach { (week: Int, date: NSDate?) in
+        dates.forEach { (week: Int, date: Date?) in
             XCTAssertEqual(week, date?.weekNumber())
         }
     }
