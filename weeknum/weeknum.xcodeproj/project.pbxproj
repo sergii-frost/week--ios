@@ -920,6 +920,7 @@
 				459320071F0AEDDB00AE1FF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
