@@ -38,5 +38,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIApplicationShortcutWidget</key>
+	<string>se.frostdigital.weeknum.widgetWeeknum</string>
 </dict>
 </plist>
