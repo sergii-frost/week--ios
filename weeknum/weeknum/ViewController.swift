@@ -33,8 +33,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     //MARK: - Date Picker setup
     
     fileprivate func setupDatePicker() {
-        datePicker.setValue(UIColor.white, forKey: "textColor")
-        datePicker.sendAction("setHighlightsToday:", to: nil, for: nil)
+        datePicker.setValue(UIColor.white, forKey: "textColor")        
     }
     
     @IBAction func updateForToday() {
