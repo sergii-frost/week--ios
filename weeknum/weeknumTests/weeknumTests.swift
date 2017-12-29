@@ -59,24 +59,22 @@ class weeknumTests: XCTestCase {
     
     func testThisWeekForDate() {
         //GIVEN
-        guard
-            let dates: [Int: Date?] =
-            [
-                53: FormatterUtils.dateFromString("03 Jan 2016", dateFormat: dateFormat),
-                5:  FormatterUtils.dateFromString("03 Feb 2016", dateFormat: dateFormat),
-                9:  FormatterUtils.dateFromString("03 Mar 2016", dateFormat: dateFormat),
-                13: FormatterUtils.dateFromString("03 Apr 2016", dateFormat: dateFormat),
-                18: FormatterUtils.dateFromString("03 May 2016", dateFormat: dateFormat),
-                22: FormatterUtils.dateFromString("03 Jun 2016", dateFormat: dateFormat),
-                26: FormatterUtils.dateFromString("03 Jul 2016", dateFormat: dateFormat),
-                31: FormatterUtils.dateFromString("03 Aug 2016", dateFormat: dateFormat),
-                35: FormatterUtils.dateFromString("03 Sep 2016", dateFormat: dateFormat),
-                40: FormatterUtils.dateFromString("03 Oct 2016", dateFormat: dateFormat),
-                44: FormatterUtils.dateFromString("03 Nov 2016", dateFormat: dateFormat),
-                48: FormatterUtils.dateFromString("03 Dec 2016", dateFormat: dateFormat),
-                1:  FormatterUtils.dateFromString("03 Jan 2017", dateFormat: dateFormat)
-            ]
-            else { XCTFail(); return}
+        let dates: [Int: Date?] =
+        [
+            53: FormatterUtils.dateFromString("03 Jan 2016", dateFormat: dateFormat),
+            5:  FormatterUtils.dateFromString("03 Feb 2016", dateFormat: dateFormat),
+            9:  FormatterUtils.dateFromString("03 Mar 2016", dateFormat: dateFormat),
+            13: FormatterUtils.dateFromString("03 Apr 2016", dateFormat: dateFormat),
+            18: FormatterUtils.dateFromString("03 May 2016", dateFormat: dateFormat),
+            22: FormatterUtils.dateFromString("03 Jun 2016", dateFormat: dateFormat),
+            26: FormatterUtils.dateFromString("03 Jul 2016", dateFormat: dateFormat),
+            31: FormatterUtils.dateFromString("03 Aug 2016", dateFormat: dateFormat),
+            35: FormatterUtils.dateFromString("03 Sep 2016", dateFormat: dateFormat),
+            40: FormatterUtils.dateFromString("03 Oct 2016", dateFormat: dateFormat),
+            44: FormatterUtils.dateFromString("03 Nov 2016", dateFormat: dateFormat),
+            48: FormatterUtils.dateFromString("03 Dec 2016", dateFormat: dateFormat),
+            1:  FormatterUtils.dateFromString("03 Jan 2017", dateFormat: dateFormat)
+        ]
         //WHEN
         //THEN
         dates.forEach { (week: Int, date: Date?) in
