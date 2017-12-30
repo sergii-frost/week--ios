@@ -36,6 +36,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         datePicker.setValue(UIColor.white, forKey: "textColor")        
     }
     
+    //MARK: - IBActions
+    
     @IBAction func updateForToday() {
         self.datePicker.date = Date()
         datePickerChangedValue(self.datePicker)
@@ -54,10 +56,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
             datePickerChangedValue(self.datePicker)
         }
     }
-
     
     @IBAction func datePickerChangedValue(_ datePickerWithNewValue: UIDatePicker) {
         updateUIWithDate(datePickerWithNewValue.date)
+    }
+    
+    @IBAction func openAppSettings() {
+        NotificationsHelper.handleAppSettings()
     }
     
     //MARK: - Week Popover methods

@@ -139,6 +139,17 @@
                                     <constraint firstAttribute="height" constant="1" id="ZNG-oJ-nxG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysK-wZ-i0t" userLabel="Settings">
+                                <rect key="frame" x="276" y="28" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="AWE-S3-gMg"/>
+                                    <constraint firstAttribute="width" secondItem="ysK-wZ-i0t" secondAttribute="height" multiplier="1:1" id="ChL-nQ-HLk"/>
+                                </constraints>
+                                <state key="normal" image="ic_settings"/>
+                                <connections>
+                                    <action selector="openAppSettings" destination="BYZ-38-t0r" eventType="touchUpInside" id="xii-yn-gHP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.11372549019607843" green="0.69411764705882351" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -167,6 +178,7 @@
                             <constraint firstItem="NV0-3y-eCQ" firstAttribute="trailing" secondItem="9t8-gq-QuG" secondAttribute="trailing" id="Ym4-X9-khQ"/>
                             <constraint firstItem="NV0-3y-eCQ" firstAttribute="trailing" secondItem="vyt-3e-5Vv" secondAttribute="trailing" id="aHz-tp-3sA"/>
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="bottom" secondItem="z0V-TP-vxc" secondAttribute="bottom" id="abv-BK-CD5"/>
+                            <constraint firstItem="NV0-3y-eCQ" firstAttribute="trailing" secondItem="ysK-wZ-i0t" secondAttribute="trailing" constant="8" id="bka-n9-Jp2"/>
                             <constraint firstItem="z0V-TP-vxc" firstAttribute="leading" secondItem="NV0-3y-eCQ" secondAttribute="leading" constant="8" id="eDg-uN-rwP"/>
                             <constraint firstItem="SWS-DE-Uv1" firstAttribute="centerX" secondItem="U2z-ik-qWu" secondAttribute="centerX" id="grd-W6-4eo"/>
                             <constraint firstItem="Gro-wk-gXu" firstAttribute="height" secondItem="vyt-3e-5Vv" secondAttribute="height" id="j5i-sh-1EN"/>
@@ -179,6 +191,7 @@
                             <constraint firstItem="qTZ-Sx-MQG" firstAttribute="leading" secondItem="kGA-Fq-Lrh" secondAttribute="trailing" constant="20" id="tHI-J5-uWf"/>
                             <constraint firstItem="9t8-gq-QuG" firstAttribute="top" secondItem="6vy-dS-RIp" secondAttribute="bottom" id="v5f-7C-Eax"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="height" secondItem="z0V-TP-vxc" secondAttribute="height" id="x6k-gu-RQA"/>
+                            <constraint firstItem="ysK-wZ-i0t" firstAttribute="top" secondItem="NV0-3y-eCQ" secondAttribute="top" constant="8" id="xZe-6u-qmm"/>
                             <constraint firstItem="kGA-Fq-Lrh" firstAttribute="centerX" secondItem="NV0-3y-eCQ" secondAttribute="centerX" id="xgE-a2-umh"/>
                             <constraint firstItem="6vy-dS-RIp" firstAttribute="height" secondItem="vyt-3e-5Vv" secondAttribute="height" id="ysx-fU-FfK"/>
                             <constraint firstItem="6vy-dS-RIp" firstAttribute="trailing" secondItem="vyt-3e-5Vv" secondAttribute="trailing" id="zUx-1J-cQo"/>
@@ -297,6 +310,7 @@
         <image name="ic_arrow_back_white" width="36" height="36"/>
         <image name="ic_arrow_forward_white" width="36" height="36"/>
         <image name="ic_event_white" width="36" height="36"/>
+        <image name="ic_settings" width="36" height="36"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
