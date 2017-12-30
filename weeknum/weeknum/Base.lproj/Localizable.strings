@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  weeknum
+
+  Created by Sergii Frost on 2017-12-30.
+  Copyright © 2017 FrostDigital. All rights reserved.
+*/
+
+"Alert.Push.Authorization.Title" = "Wanna badge?";
+"Alert.Push.Authorization.Message" = "
+Hey, do you want to see current week# as badge on the app icon?
+I need you to allow app to do that :)
+PS: You can always change it in Settings
+";
+"Alert.Push.Authorization.Button.Negative" = "Nah";
+"Alert.Push.Authorization.Button.Positive" = "Yeah, sure!";

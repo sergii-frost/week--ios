@@ -44,6 +44,7 @@
 		4593200E1F0AF4A900AE1FF8 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480291D27FDC700844EF4 /* Localized.swift */; };
 		459320111F0B068A00AE1FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459320101F0B068A00AE1FF8 /* Assets.xcassets */; };
 		459320151F0B07CB00AE1FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459320141F0B07CB00AE1FF8 /* Assets.xcassets */; };
+		459CE3F41FF7C8760075FA82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 459CE3F21FF7C8760075FA82 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		459320021F0AEDDB00AE1FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459320101F0B068A00AE1FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		459320141F0B07CB00AE1FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		459CE3F31FF7C8760075FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = weeknum/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 		45047FF61D27E96200844EF4 = {
 			isa = PBXGroup;
 			children = (
+				459CE3F21FF7C8760075FA82 /* Localizable.strings */,
 				450480011D27E96300844EF4 /* weeknum */,
 				450480161D27E96300844EF4 /* weeknumTests */,
 				453BD1CB1D28237F00B572D9 /* watchWeeknum */,
@@ -462,6 +465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4504800D1D27E96300844EF4 /* LaunchScreen.storyboard in Resources */,
+				459CE3F41FF7C8760075FA82 /* Localizable.strings in Resources */,
 				459320111F0B068A00AE1FF8 /* Assets.xcassets in Resources */,
 				450480081D27E96300844EF4 /* Main.storyboard in Resources */,
 			);
@@ -612,6 +616,14 @@
 				459320001F0AEDDB00AE1FF8 /* Base */,
 			);
 			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		459CE3F21FF7C8760075FA82 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				459CE3F31FF7C8760075FA82 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

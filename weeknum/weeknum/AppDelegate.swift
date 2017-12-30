@@ -72,11 +72,11 @@ extension AppDelegate {
     
     fileprivate func askForNotificationAuthorization() {
         let alertController = UIAlertController(
-            title: "Wanna badge?",
-            message: "Hey, do you want to see current week # as badge on the app icon? \nI need you to allow app to do that :) \nPS: You can always change it in Settings", preferredStyle: .alert)
+            title: "Alert.Push.Authorization.Title".localized,
+            message: "Alert.Push.Authorization.Message".localized, preferredStyle: .alert)
         alertController.view.tintColor = UIColor.weekNumMainColor()
-        alertController.addAction(UIAlertAction(title: "Nah", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: "Yeah, sure!", style: .default, handler: { [weak self] _ in
+        alertController.addAction(UIAlertAction(title: "Alert.Push.Authorization.Button.Negative".localized, style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Alert.Push.Authorization.Button.Positive".localized, style: .default, handler: { [weak self] _ in
             self?.requestBadgeAuthorization()
         }))
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
