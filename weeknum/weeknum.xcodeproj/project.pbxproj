@@ -44,6 +44,9 @@
 		4593200E1F0AF4A900AE1FF8 /* Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450480291D27FDC700844EF4 /* Localized.swift */; };
 		459320111F0B068A00AE1FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459320101F0B068A00AE1FF8 /* Assets.xcassets */; };
 		459320151F0B07CB00AE1FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459320141F0B07CB00AE1FF8 /* Assets.xcassets */; };
+		459CE3F41FF7C8760075FA82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 459CE3F21FF7C8760075FA82 /* Localizable.strings */; };
+		459CE3F61FF7C99E0075FA82 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */; };
+		459CE3F81FF7D2400075FA82 /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +151,9 @@
 		459320021F0AEDDB00AE1FF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		459320101F0B068A00AE1FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		459320141F0B07CB00AE1FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		459CE3F31FF7C8760075FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = weeknum/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsUtils.swift; path = Utils/SettingsUtils.swift; sourceTree = "<group>"; };
+		459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,7 @@
 		45047FF61D27E96200844EF4 = {
 			isa = PBXGroup;
 			children = (
+				459CE3F21FF7C8760075FA82 /* Localizable.strings */,
 				450480011D27E96300844EF4 /* weeknum */,
 				450480161D27E96300844EF4 /* weeknumTests */,
 				453BD1CB1D28237F00B572D9 /* watchWeeknum */,
@@ -258,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				450598CE1D293FB000E649F8 /* FormatterUtils.swift */,
+				459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */,
+				459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -462,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4504800D1D27E96300844EF4 /* LaunchScreen.storyboard in Resources */,
+				459CE3F41FF7C8760075FA82 /* Localizable.strings in Resources */,
 				459320111F0B068A00AE1FF8 /* Assets.xcassets in Resources */,
 				450480081D27E96300844EF4 /* Main.storyboard in Resources */,
 			);
@@ -509,9 +519,11 @@
 			files = (
 				4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */,
 				456304A21D7312580061B959 /* Colors.swift in Sources */,
+				459CE3F81FF7D2400075FA82 /* NotificationsHelper.swift in Sources */,
 				4504802E1D280DF000844EF4 /* Designables.swift in Sources */,
 				450480051D27E96300844EF4 /* ViewController.swift in Sources */,
 				450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */,
+				459CE3F61FF7C99E0075FA82 /* SettingsUtils.swift in Sources */,
 				4504802A1D27FDC700844EF4 /* Localized.swift in Sources */,
 				452E90701D7308680017F3D2 /* WeekPickerViewController.swift in Sources */,
 				452E906E1D72F7DB0017F3D2 /* iOS9PopoverFix.swift in Sources */,
@@ -614,6 +626,14 @@
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
+		459CE3F21FF7C8760075FA82 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				459CE3F31FF7C8760075FA82 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -662,7 +682,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -710,7 +730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				STRIP_BITCODE_FROM_COPIED_FILES = NO;

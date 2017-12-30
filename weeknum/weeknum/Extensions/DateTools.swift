@@ -103,7 +103,7 @@ extension Date {
         let cal: Calendar = Calendar.current
         let comp: DateComponents = cal.dateComponents([.weekday], from: self)
         
-        guard let weekday = WeekDays(rawValue: comp.weekday!) else {
+        guard let componentWeekday = comp.weekday, let weekday = WeekDays(rawValue: componentWeekday) else {
             return nil
         }
         return cal.date(byAdding: .day, value: weekday.daysLeftTillNextWeek - DAYS_IN_WEEK, to: self)
