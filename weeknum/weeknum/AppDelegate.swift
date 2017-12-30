@@ -71,12 +71,18 @@ extension AppDelegate {
     }
     
     fileprivate func askForNotificationAuthorization() {
+        if SettingsUtils.wasBadgeNotificationAuthorizationPrompted() {
+            return //No need to annoy user with same prompt if it was asked before
+        }
         let alertController = UIAlertController(
             title: "Alert.Push.Authorization.Title".localized,
             message: "Alert.Push.Authorization.Message".localized, preferredStyle: .alert)
         alertController.view.tintColor = UIColor.weekNumMainColor()
-        alertController.addAction(UIAlertAction(title: "Alert.Push.Authorization.Button.Negative".localized, style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Alert.Push.Authorization.Button.Negative".localized, style: .cancel, handler: { _ in
+            SettingsUtils.markBadgeNotificationAuthorizationAsPrompted()
+        }))
         alertController.addAction(UIAlertAction(title: "Alert.Push.Authorization.Button.Positive".localized, style: .default, handler: { [weak self] _ in
+            SettingsUtils.markBadgeNotificationAuthorizationAsPrompted()
             self?.requestBadgeAuthorization()
         }))
         UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
