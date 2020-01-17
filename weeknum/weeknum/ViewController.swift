@@ -33,7 +33,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     //MARK: - Date Picker setup
     
     fileprivate func setupDatePicker() {
-        datePicker.setValue(UIColor.white, forKey: "textColor")        
+        datePicker.setValue(UIColor.white, forKey: "textColor")
+        datePicker.setValue(false, forKey: "highlightsToday")
     }
     
     //MARK: - IBActions
@@ -60,11 +61,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBAction func datePickerChangedValue(_ datePickerWithNewValue: UIDatePicker) {
         updateUIWithDate(datePickerWithNewValue.date)
     }
-    
-    @IBAction func openAppSettings() {
-        NotificationsHelper.handleAppSettings()
-    }
-    
+        
     //MARK: - Week Popover methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -46,7 +46,6 @@
 		459320151F0B07CB00AE1FF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459320141F0B07CB00AE1FF8 /* Assets.xcassets */; };
 		459CE3F41FF7C8760075FA82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 459CE3F21FF7C8760075FA82 /* Localizable.strings */; };
 		459CE3F61FF7C99E0075FA82 /* SettingsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */; };
-		459CE3F81FF7D2400075FA82 /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -153,7 +152,6 @@
 		459320141F0B07CB00AE1FF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		459CE3F31FF7C8760075FA82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = weeknum/Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsUtils.swift; path = Utils/SettingsUtils.swift; sourceTree = "<group>"; };
-		459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +264,6 @@
 			children = (
 				450598CE1D293FB000E649F8 /* FormatterUtils.swift */,
 				459CE3F51FF7C99E0075FA82 /* SettingsUtils.swift */,
-				459CE3F71FF7D2400075FA82 /* NotificationsHelper.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -448,6 +445,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -519,7 +517,6 @@
 			files = (
 				4504802C1D27FDE400844EF4 /* DateTools.swift in Sources */,
 				456304A21D7312580061B959 /* Colors.swift in Sources */,
-				459CE3F81FF7D2400075FA82 /* NotificationsHelper.swift in Sources */,
 				4504802E1D280DF000844EF4 /* Designables.swift in Sources */,
 				450480051D27E96300844EF4 /* ViewController.swift in Sources */,
 				450598CF1D293FB000E649F8 /* FormatterUtils.swift in Sources */,
@@ -809,7 +806,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
@@ -827,7 +824,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.2;
 			};
